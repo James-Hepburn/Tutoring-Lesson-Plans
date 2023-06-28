@@ -1,0 +1,5 @@
+exceptions list:
+
+1. valid direction (up, down, left or right)
+2. valid spot (not hitting a wall)
+3. out of bounds (moving outside the maze)
