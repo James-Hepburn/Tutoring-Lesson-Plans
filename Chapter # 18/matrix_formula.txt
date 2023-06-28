@@ -1,0 +1,4 @@
+a_result = (a1 * a2) + (b1 * c2)
+b_result = (a1 * b2) + (b1 * d2)
+c_result = (c1 * a2) + (d1 * c2)
+d_result = (c1 * b2) + (d1 * d2)
