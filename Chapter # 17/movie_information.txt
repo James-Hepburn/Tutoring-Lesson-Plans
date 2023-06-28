@@ -1,0 +1,35 @@
+The Godfather, Francis Ford Coppola, Crime, R
+The Silence of the Lambs, Jonathan Demme, Thriller, R
+The Shawshank Redemption, Frank Darabont, Drama, R
+Forrest Gump, Robert Zemeckis, Comedy, PG-13
+Saving Private Ryan, Steven Spielberg, War, R
+The Dark Knight, Christopher Nolan, Action, PG-13
+Pulp Fiction, Quentin Tarantino, Crime, R
+The Matrix, The Wachowski Brothers, Science Fiction, R
+The Green Mile, Frank Darabont, Drama, R
+Titanic, James Cameron, Romance, PG-13
+Fight Club, David Fincher, Drama, R
+Gladiator, Ridley Scott, Action, R
+Jurassic Park, Steven Spielberg, Science Fiction, PG-13
+Star Wars: Episode IV - A New Hope, George Lucas, Science Fiction, PG
+Jaws, Steven Spielberg, Thriller, PG
+The Lion King, Roger Allers, Animation, G
+Toy Story, John Lasseter, Animation, G
+Beauty and the Beast, Gary Trousdale, Animation, G
+The Terminator, James Cameron, Science Fiction, R
+Alien, Ridley Scott, Science Fiction, R
+The Exorcist, William Friedkin, Horror, R
+Die Hard, John McTiernan, Action, R
+The Silence of the Lambs, Jonathan Demme, Thriller, R
+A Clockwork Orange, Stanley Kubrick, Science Fiction, R
+Apocalypse Now, Francis Ford Coppola, War, R
+Goodfellas, Martin Scorsese, Crime, R
+The Godfather: Part II, Francis Ford Coppola, Crime, R
+The Big Lebowski, Joel Coen, Comedy, R
+The Prestige, Christopher Nolan, Drama, PG-13
+The Departed, Martin Scorsese, Crime, R
+American Beauty, Sam Mendes, Drama, R
+The Truman Show, Peter Weir, Science Fiction, PG
+Toy Story 2, John Lasseter, Animation, G
+Up, Pete Docter, Animation, PG
+Finding Nemo, Andrew Stanton, Animation, G
