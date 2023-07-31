@@ -7,7 +7,7 @@ print ("2) subtraction")
 print ("3) multiplication")
 print ("4) division")
 
-option = int (input ("your option: "))
+option = int (input ("\nyour option: "))
 print ()
 
 if option == 1:
