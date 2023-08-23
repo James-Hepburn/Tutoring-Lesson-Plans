@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-class Library {
+class Main {
 
   public static Scanner input = new Scanner (System.in);
 
