@@ -23,5 +23,5 @@ for i in range (10):
     print ("\nYou guessed the pin:", a, b, c, d)
     break
   elif i == 9:
-    print ("\nYou ran out of chances! The pin was:", a, b, c, d)
+    print ("\nYou ran out of chances! The pin was:", pin)
     
