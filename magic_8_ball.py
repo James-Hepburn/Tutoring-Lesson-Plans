@@ -1,6 +1,6 @@
 import random
 
-def get_response ():
+def get_answer ():
   random_number = random.randint (0, 2)
   if random_number == 0:
       return "Yes, definitely."
