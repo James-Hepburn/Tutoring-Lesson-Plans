@@ -57,10 +57,14 @@ int main() {
   std::vector <Duck> duck;
 
   while (true) {
-    std::string add;
-    std::cout << "\nWould you like to add a bird? (y/n) ";
-    std::cin >> add;
-    if (add == "y") {
+    std::cout << "\n1) add a bird \n";
+    std::cout << "2) view all birds \n";
+    std::cout << "3) exit \n";
+    int selection;
+    std::cout << "\nWhich option do you want to select? ";
+    std::cin >> selection;
+
+    if (selection == 1) {
       std::string location;
       std::cout << "\nWhat is the bird's location? ";
       std::cin >> location;
@@ -98,34 +102,29 @@ int main() {
       } else {
         std::cout << "\nInvalid bird species. Please try again.\n";
       }
-    } else if (add == "n") {
-      std::string view;
-      std::cout << "\nWould you like to view the birds? (y/n) ";
-      std::cin >> view;
-      if (view == "y") {
-        std::cout << "\nUnknown Species:\n";
-        for (int i = 0; i < unknown.size(); i++) {
-          unknown[i].display();
-        }
-        std::cout << "\nBlue Jay Species:\n";
-        for (int i = 0; i < bluejay.size(); i++) {
-          bluejay[i].display();
-        }
-        std::cout << "\nParrot Species:\n";
-        for (int i = 0; i < parrot.size(); i++) {
-          parrot[i].display();
-        }
-        std::cout << "\nDuck Species:\n";
-        for (int i = 0; i < duck.size(); i++) {
-          duck[i].display();
-        }
-      } else {
-        std::cout << "\nGoodbye.\n";
-        break;
+    } else if (selection == 2) {
+      std::cout << "\nUnknown Species:\n";
+      for (int i = 0; i < unknown.size(); i++) {
+        unknown[i].display();
       }
+      std::cout << "\nBlue Jay Species:\n";
+      for (int i = 0; i < bluejay.size(); i++) {
+        bluejay[i].display();
+      }
+      std::cout << "\nParrot Species:\n";
+      for (int i = 0; i < parrot.size(); i++) {
+        parrot[i].display();
+      }
+      std::cout << "\nDuck Species:\n";
+      for (int i = 0; i < duck.size(); i++) {
+        duck[i].display();
+      }
+    } else if (selection == 3) {
+      std::cout << "\nGoodbye.\n";
+      break;
     } else {
       std::cout << "Invalid input. Please try again.\n";
     }
-  }
+  } 
     
 }
