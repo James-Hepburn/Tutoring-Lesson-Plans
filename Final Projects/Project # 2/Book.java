@@ -2,25 +2,21 @@ public class Book {
 
   private String title;
   private String author;
-  private User reader;
+  private String reader;
 
   public Book (String title, String author) {
     this.title = title;
     this.author = author;
-    reader = null;
+    reader = "in library";
   }
 
   public void print_information () {
     System.out.print ("\n" + title + " written by " + author);
-    if (reader == null) {
-      System.out.print (" - [in library] ");
-    } else {
-      System.out.print (" - [with " + reader.get_name () + "] ");
-    }
+    System.out.print (" - [" + reader + "]");
   }
 
-  public void set_reader (User u) {
-    reader = u;
+  public void set_reader (String name) {
+    reader = "with " + name;
   }
 
   public String get_title () {
@@ -31,7 +27,7 @@ public class Book {
     return author;
   }
 
-  public User get_reader () {
+  public String get_reader () {
     return reader;
   }
   
