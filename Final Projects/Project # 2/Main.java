@@ -4,8 +4,6 @@ import java.util.ArrayList;
 class Main {
 
   public static Scanner input = new Scanner (System.in);
-
-  public static ArrayList <User> users = new ArrayList <>();
   public static ArrayList <Book> books = new ArrayList <>();
   
   public static void main(String[] args) {
@@ -73,7 +71,7 @@ class Main {
   public static void view_available () {
     System.out.println ("\nHere are all the books that are available in the library currently:");
     for (int i = 0; i < books.size(); i++) {
-      if (books.get(i).get_reader() == null) {
+      if (books.get(i).get_reader().equals ("in library")) {
         books.get(i).print_information();
       }
     }
@@ -84,15 +82,6 @@ class Main {
     for (int i = 0; i < books.size(); i++) {
       if (books.get(i).get_title().equals (title) && books.get(i).get_author().equals (author)) {
         return books.get(i);
-      }
-    }
-    return null;
-  }
-
-  public static User find_user (String name) {
-    for (int i = 0; i < users.size(); i++) {
-      if (users.get(i).get_name().equals (name)) {
-        return users.get(i);
       }
     }
     return null;
@@ -109,27 +98,14 @@ class Main {
     if (b == null) {
       System.out.println ("Sorry, that book does not exist in the library.");
       return;
-    } else if (b.get_reader() != null) {
+    } else if (! b.get_reader().equals ("in library")) {
       System.out.println ("Sorry, that book is not available currently.");
       return;
     }
 
     System.out.print ("What is your name? ");
     String name = input.nextLine();
-
-    User u = find_user (name);
-    if (u == null) {
-      User added_u = new User (name);
-      users.add (added_u);
-      added_u.set_book (b);
-      b.set_reader (added_u);
-    } else if (u.get_book() != null) {
-      System.out.println ("Sorry, you can't sign out more than one book at a time.");
-      return;
-    } else {
-      u.set_book (b);
-      b.set_reader (u);
-    }
+    b.set_reader (name);
   }
 
   public static void sign_in () {
@@ -143,25 +119,20 @@ class Main {
     if (b == null) {
       System.out.println ("Sorry, that book does not exist in the library.");
       return;
-    } else if (b.get_reader() == null) {
+    } else if (b.get_reader().equals("in library")) {
       System.out.println ("Sorry, that book has already been returned.");
       return;
     }
 
     System.out.print ("What is your name? ");
     String name = input.nextLine ();
-
-    User u = find_user (name);
-    if (u == null) {
-      System.out.println ("Sorry, that user does not exist within the library.");
-      return;
-    } else if (u.get_book().get_title().equals (title) && u.get_book().get_author().equals (author)) {
-      u.set_book(null);
-      b.set_reader(null);
-    } else {
+    
+    if (! b.get_reader().equals("with " + name)) {
       System.out.println ("Sorry, that book is not signed out by that user.");
       return;
     }
+
+    b.set_reader ("in library");
   }
   
 }
