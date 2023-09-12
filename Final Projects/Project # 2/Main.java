@@ -22,6 +22,7 @@ class Main {
       System.out.println ("2) View all available books");
       System.out.println ("3) Sign out a book");
       System.out.println ("4) Sign in a book");
+      System.out.println ("5) Exit");
   
       System.out.print ("\nWhich option would you like to select? ");
       int option = input.nextInt ();
