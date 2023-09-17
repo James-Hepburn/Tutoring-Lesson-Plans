@@ -35,10 +35,7 @@ void diamond (int rows) {
     spaces -= 1;
     count += 2;
   }
-  if (rows % 2 != 0) {
-    half += 1;
-  }
-  for (int i = 0; i < half; i++) {
+  for (int i = 0; i < half + 1; i++) {
     for (int j = 0; j < spaces; j++) {
       std::cout << "  ";
     }
