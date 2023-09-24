@@ -22,6 +22,6 @@ for i in range (5):
   if a != "_" and b != "_" and c != "_" and d != "_":
     print ("\nYou guessed the pin:", a, b, c, d)
     break
-  elif i == 9:
+  elif i == 4:
     print ("\nYou ran out of chances! The pin was:", pin)
     
