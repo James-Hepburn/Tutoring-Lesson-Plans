@@ -7,7 +7,7 @@ b = "_"
 c = "_"
 d = "_"
 
-for i in range (10):
+for i in range (5):
   print ()
   print (i+1, "- Guess the pin:", a, b, c, d)
   guess = input ("\nWhat is it? ")
