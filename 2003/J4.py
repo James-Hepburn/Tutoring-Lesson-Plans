@@ -1,16 +1,10 @@
 def get_syllable (word):
   word = word.lower()
-  syllable = ""
-  found_vowel = False
-  for i in word:
-    if i in "aeiou":
-      found_vowel = True
-      syllable = i
-    elif found_vowel:
-      syllable += i
-  if not found_vowel:
-    return word
-  return syllable
+  index = 0
+  for i in range (len (word)):
+    if word[i] in "aeiou":
+      index = i
+  return word[index:]
       
 def identify_poem ():
   line1 = get_syllable (input().split()[-1])
