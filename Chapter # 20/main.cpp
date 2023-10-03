@@ -7,13 +7,7 @@ class node {
     int data;
     node* next; // pointer to the next node in the list
 
-    // default constructor
-    node () {
-      data = 0;
-      next = NULL;
-    }
-
-    // normal constructor
+    // constructor
     node (int d) {
       data = d;
       next = NULL;
