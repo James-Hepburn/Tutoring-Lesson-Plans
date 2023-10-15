@@ -4,13 +4,13 @@ import os
 
 def print_board ():
   line = ""
-  for i in range (size):
+  for i in range(size):
+    line += board[i] + " "
     if (i + 1) % 5 == 0:
-      print (line)
+      print(line)
       line = ""
-    else:
-      line += board[i] + " "
-  print (line)
+  if line != "":
+    print(line)
 
 print ("\nWelcome to Concentration! \n")
 
