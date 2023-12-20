@@ -70,7 +70,8 @@ class Deck:
     random.shuffle (self.cards)
 
   def deal_card (self):
-    return self.cards.pop ()
+    if not self.is_empty ():
+      return self.cards.pop ()
 
   def is_empty (self):
     return len (self.cards) == 0
@@ -172,6 +173,7 @@ for i in range (7):
     piles[i].add_card (card)
 
 def display_pile (index):
+  print (index + 1, "-", end=" ")
   print ("    " * index, end="")
   piles[index].display ()
 
