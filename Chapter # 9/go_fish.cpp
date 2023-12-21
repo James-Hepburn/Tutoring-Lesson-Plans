@@ -116,13 +116,15 @@ class player {
     }
 
     card give_card (std::string ask) {
+      card temp = card ("", "");
       for (int i = 0; i < cards.size(); i++) {
         if (ask == cards[i].get_value()) {
-          card temp = cards[i];
+          temp = cards[i];
           cards.erase (cards.begin() + i);
-          return temp;
+          break;
         }
       }
+      return temp;
     }
 
     void add_card (card c) {
@@ -238,7 +240,6 @@ int main() {
       std::cout << "\n" << p2.get_name() << " won!\n";
       break;
     }
- 
+
   }
-  
 }
