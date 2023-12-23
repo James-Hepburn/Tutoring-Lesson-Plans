@@ -30,6 +30,7 @@ def bfs (links, start, target):
       for i in links [current]:
         if i not in visited:
           queue.append (i)
+          visited.append (i)
   return False
 
 n = int (input ())
