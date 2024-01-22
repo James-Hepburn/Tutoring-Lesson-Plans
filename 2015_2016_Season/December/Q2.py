@@ -1,40 +1,29 @@
 # USACO 2015 December - Bronze Level - Problem 2. Speeding Ticket - http://www.usaco.org/index.php?page=viewproblem2&cpid=568
 
 n, m = [int (i) for i in input ().split ()]
+road_info = [[int (i) for i in input ().split ()] for _ in range (n)]
+cow_info = [[int (i) for i in input ().split ()] for _ in range (m)]
 
-current_length = 1
-n_information = []
+max_speed = 0
 
-for _ in range (n):
-  new_length, speed_limit = [int (i) for i in input ().split ()]
-  n_information.append ([[current_length, new_length + current_length - 1], speed_limit])
-  current_length += new_length
+for i in range (1, 101):
+  road_pos = 1
+  road_speed = -1
+  for j in road_info:
+    if road_pos <= i < j [0] + road_pos:
+      road_speed = j [1]
+      break
+    road_pos += j [0]
 
-current_length = 1
-m_information = []
+  cow_pos = 1
+  cow_speed = -1
+  for j in cow_info:
+    if cow_pos <= i < j [0] + cow_pos:
+      cow_speed = j [1]
+      break
+    cow_pos += j [0]
 
-for _ in range (m):
-  new_length, speed = [int (i) for i in input ().split ()]
-  m_information.append ([[current_length, new_length + current_length - 1], speed])
-  current_length += new_length
+  speed = max (0, cow_speed - road_speed)
+  max_speed = max (speed, max_speed)
 
-def check_limit (length, speed):
-  for i in n_information:
-    start = i [0][0]
-    end = i [0][1]
-    limit = i [1]
-    if start <= length <= end:
-      return speed - limit
-
-over_limit = 0
-
-for i in m_information:
-  start = i [0][0]
-  end = i [0][1]
-  speed = i [1]
-  result_start = check_limit (start, speed)
-  result_end = check_limit (end, speed)
-  over_limit = max (over_limit, result_start)
-  over_limit = max (over_limit, result_end)
-
-print (over_limit)
+print (max_speed)
