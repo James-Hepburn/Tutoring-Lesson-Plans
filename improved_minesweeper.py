@@ -25,6 +25,7 @@ hidden_board = [
 ]
 
 def add_bombs (amount):
+  global hidden_board
   while amount > 0:
     x = random.randint (0, 8)
     y = random.randint (0, 8)
@@ -33,6 +34,7 @@ def add_bombs (amount):
       amount -= 1
 
 def add_numbers ():
+  global hidden_board
   for i in range (9):
     for j in range (9):
       if hidden_board [i][j] == ' ':
@@ -56,6 +58,20 @@ def add_numbers ():
         if count != 0:
           hidden_board [i][j] = str (count)
 
+def reset ():
+  global hidden_board
+  hidden_board = [
+    [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+  ]
+
 def print_board ():
   print ()
   for i in seen_board:
@@ -63,23 +79,20 @@ def print_board ():
   print ()
 
 def sweeping (row, col):
-  if not (0 <= row < 9):
-    return
-  elif not (0 <= col < 9):
-    return 
-  elif seen_board [row][col] != '#':
-    return 
-  elif hidden_board [row][col] != ' ':
-    return
-  seen_board [row][col] = hidden_board [row][col]
-  sweeping (row - 1, col)
-  sweeping (row + 1, col)
-  sweeping (row, col - 1)
-  sweeping (row, col + 1)
-  sweeping (row - 1, col - 1)
-  sweeping (row - 1, col + 1)
-  sweeping (row + 1, col - 1)
-  sweeping (row + 1, col + 1)
+  global seen_board
+  if 0 <= row < 9 and 0 <= col < 9 and seen_board [row][col] == '#':
+    if hidden_board [row][col] == ' ':
+      seen_board [row][col] = hidden_board [row][col]
+      sweeping (row - 1, col)
+      sweeping (row + 1, col)
+      sweeping (row, col - 1)
+      sweeping (row, col + 1)
+      sweeping (row - 1, col - 1)
+      sweeping (row - 1, col + 1)
+      sweeping (row + 1, col - 1)
+      sweeping (row + 1, col + 1)
+    elif hidden_board [row][col] != 'x':
+      seen_board [row][col] = hidden_board [row][col] 
 
 def check_lost ():
   for i in seen_board:
@@ -95,6 +108,8 @@ def check_win ():
 
 add_bombs (10)
 add_numbers ()
+
+first_turn = True
 
 while True:
   time.sleep (1)
@@ -133,6 +148,11 @@ while True:
     if row > 9 or row < 1 or col > 9 or col < 1:
       print ("\nInvalid input.")
     elif seen_board [row - 1][col - 1] == '#':
+      while first_turn and hidden_board [row - 1][col - 1] != ' ':
+        reset ()
+        add_bombs (10)
+        add_numbers ()
+      first_turn = False
       sweeping (row - 1, col - 1)
       seen_board [row - 1][col - 1] = hidden_board [row - 1][col - 1]
     else:
