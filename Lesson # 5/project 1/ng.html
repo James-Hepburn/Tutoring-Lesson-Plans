@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  
+    <title>Number Guesser</title>
+
+    <style>
+      body {
+        background-color: darkolivegreen;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      h1 {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -50%);
+        font-size: 80px;
+      }
+
+      button {
+        background-color: black;
+        color: white;
+        font-size: 15px;
+        height: 40px;
+        width: 40px;
+        position: absolute;
+      }
+
+      #button1 {bottom: 150px; right: 975px;}
+      #button2 {bottom: 150px; right: 925px;}
+      #button3 {bottom: 150px; right: 875px;}
+      #button4 {bottom: 150px; right: 825px;}
+      #button5 {bottom: 150px; right: 775px;}
+      #button6 {bottom: 150px; right: 725px;}
+      #button7 {bottom: 150px; right: 675px;}
+      #button8 {bottom: 150px; right: 625px;}
+      #button9 {bottom: 150px; right: 575px;}
+      #button10 {bottom: 150px; right: 525px;}
+
+      header {
+        background-color: black;
+        padding: 20px;
+      }
+      
+      .button-link {
+        text-decoration: none;
+        display: inline-block;
+        margin: 0 100px;
+        padding: 20px;
+        color: white;
+      }
+
+      .button-link:hover {
+        background-color: #555; 
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Number Guesser!</h1>
+
+    <header>
+      <a class = "button-link" href = "index.html"> Home Page </a>
+      <a class = "button-link" href = "ttt.html"> Tic Tac Toe </a>
+      <a class = "button-link" href = "rps.html"> Rock, Paper, Scissors </a>
+      <a class = "button-link" href = "ng.html"> Number Guesser </a>
+    </header>
+
+    <button id = "button1" onclick = "buttonClick(1)">1</button>
+    <button id = "button2" onclick = "buttonClick(2)">2</button>
+    <button id = "button3" onclick = "buttonClick(3)">3</button>
+    <button id = "button4" onclick = "buttonClick(4)">4</button>
+    <button id = "button5" onclick = "buttonClick(5)">5</button>
+    <button id = "button6" onclick = "buttonClick(6)">6</button>
+    <button id = "button7" onclick = "buttonClick(7)">7</button>
+    <button id = "button8" onclick = "buttonClick(8)">8</button>
+    <button id = "button9" onclick = "buttonClick(9)">9</button>
+    <button id = "button10" onclick = "buttonClick(10)">10</button>
+
+    <script>
+      var answer = 1 + Math.floor (Math.random() % 10);
+      var lives = 3;
+      
+      function buttonClick (number) {
+        if (lives == 0) {
+          return;
+        } else if (number == answer) {
+          win();
+          lives = 0;
+        } else {
+          lives -= 1;
+          if (lives == 0) {
+            loss();
+          }
+        }
+      }
+
+
+      function win () {
+        var image = document.createElement("img");
+        image.style.width = "100px"; 
+        image.style.height = "100px"; 
+        image.style.position = "absolute";
+        image.style.top = "40%";
+        image.style.right = "47%";
+        image.src = "yes.png";
+        document.body.appendChild(image);
+      }
+
+      function loss () {
+        var image = document.createElement("img");
+        image.style.width = "100px"; 
+        image.style.height = "100px"; 
+        image.style.position = "absolute";
+        image.style.top = "40%";
+        image.style.right = "47%";
+        image.src = "no.png";
+        document.body.appendChild(image);
+      }
+    </script>
+    
+  </body>
+
+</html>
