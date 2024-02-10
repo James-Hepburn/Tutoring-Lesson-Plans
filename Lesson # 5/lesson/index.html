@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <style>
+
+      button {
+        background-color: black;
+        font-size: 30px;
+        color: white;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+      }
+
+      h1 {
+        position: absolute;
+      }
+
+      /* for positioning elements (must have position: absolute) */
+
+      #plus {top: 50%; left: 40%;}
+      #minus {top: 50%; left: 60%;}
+      #text {top: 20%; left: 50%;}
+      
+    </style>
+    
+  </head>
+
+  <body>
+
+    <!-- for creating the buttons, setting the id and their functions -->
+
+    <button id = "plus" onclick = "add()">+</button>
+    <button id = "minus" onclick = "subtract()">-</button>
+
+    <!-- for displaying the text -->
+
+    <h1 id = "text">
+      <span id = "count">0</span>
+    </h1>
+
+    <!-- script is used to store java script code -->
+
+    <script>
+
+      // variables and functions needed, in java script
+
+      var count = 0;
+
+      function add () {
+        count += 1;
+        var score = document.getElementById("count");
+        score.textContent = count;
+      }
+
+      function subtract () {
+        count -= 1;
+        var score = document.getElementById("count");
+        score.textContent = count;
+      }
+      
+    </script>
+    
+  </body>
+
+</html>
