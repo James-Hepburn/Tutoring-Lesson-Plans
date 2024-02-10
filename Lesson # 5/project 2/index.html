@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>Maze!</title>
+    
+    <style>
+      body {
+        background-color: #7b241c;
+      }
+
+      h1 {
+        font-size: 80px;
+        position: absolute;
+      }
+
+      button {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        background: none;
+        border: none;
+      }
+
+      img {
+        width: 50px;
+        height: 50px;
+      }
+
+      #title {
+        top: 2%;
+        left: 45%;
+      }
+      #r1c1 {
+        top: 25%;
+        left: 40%;
+      }
+      #r1c2 {
+        top: 25%;
+        left: 45%;
+      }
+      #r1c3 {
+        top: 25%;
+        left: 50%;
+      }
+      #r1c4 {
+        top: 25%;
+        left: 55%;
+      }
+      #r1c5 {
+        top: 25%;
+        left: 60%;
+      }
+      #r2c1 {
+        top: 35%;
+        left: 40%;
+      }
+      #r2c2 {
+        top: 35%;
+        left: 45%;
+      }
+      #r2c3 {
+        top: 35%;
+        left: 50%;
+      }
+      #r2c4 {
+        top: 35%;
+        left: 55%;
+      }
+      #r2c5 {
+        top: 35%;
+        left: 60%;
+      }
+      #r3c1 {
+        top: 45%;
+        left: 40%;
+      }
+      #r3c2 {
+        top: 45%;
+        left: 45%;
+      }
+      #r3c3 {
+        top: 45%;
+        left: 50%;
+      }
+      #r3c4 {
+        top: 45%;
+        left: 55%;
+      }
+      #r3c5 {
+        top: 45%;
+        left: 60%;
+      }
+      #r4c1 {
+        top: 55%;
+        left: 40%;
+      }
+      #r4c2 {
+        top: 55%;
+        left: 45%;
+      }
+      #r4c3 {
+        top: 55%;
+        left: 50%;
+      }
+      #r4c4 {
+        top: 55%;
+        left: 55%;
+      }
+      #r4c5 {
+        top: 55%;
+        left: 60%;
+      }
+      #r5c1 {
+        top: 65%;
+        left: 40%;
+      }
+      #r5c2 {
+        top: 65%;
+        left: 45%;
+      }
+      #r5c3 {
+        top: 65%;
+        left: 50%;
+      }
+      #r5c4 {
+        top: 65%;
+        left: 55%;
+      }
+      #r5c5 {
+        top: 65%;
+        left: 60%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="title">Maze!</h1>
+    <button id="r1c1" onclick="move(1, 1)"><img src="purple.jpeg"></button>
+    <button id="r1c2"><img src="brick.png"></button>
+    <button id="r1c3"><img src="brick.png"></button>
+    <button id="r1c4"><img src="brick.png"></button>
+    <button id="r1c5"><img src="brick.png"></button>
+    <button id="r2c1" onclick="move(2, 1)"><img src="grass.png"></button>
+    <button id="r2c2" onclick="move(2, 2)"><img src="grass.png"></button>
+    <button id="r2c3" onclick="move(2, 3)"><img src="grass.png"></button>
+    <button id="r2c4" onclick="move(2, 4)"><img src="grass.png"></button>
+    <button id="r2c5"><img src="brick.png"></button>
+    <button id="r3c1"><img src="brick.png"></button>
+    <button id="r3c2"><img src="brick.png"></button>
+    <button id="r3c3"><img src="brick.png"></button>
+    <button id="r3c4" onclick="move(3, 4)"><img src="grass.png"></button>
+    <button id="r3c5"><img src="brick.png"></button>
+    <button id="r4c1"><img src="brick.png"></button>
+    <button id="r4c2" onclick="move(4, 2)"><img src="grass.png"></button>
+    <button id="r4c3" onclick="move(4, 3)"><img src="grass.png"></button>
+    <button id="r4c4" onclick="move(4, 4)"><img src="grass.png"></button>
+    <button id="r4c5" onclick="move(4, 5)"><img src="grass.png"></button>
+    <button id="r5c1"><img src="brick.png"></button>
+    <button id="r5c2"><img src="brick.png"></button>
+    <button id="r5c3"><img src="brick.png"></button>
+    <button id="r5c4"><img src="brick.png"></button>
+    <button id="r5c5" onclick="move(5, 5)"><img src="black.png"></button>
+    
+    <script>
+      var x = 1;
+      var y = 1;
+      
+      function move(newX, newY) {
+        if (x == 5 && y == 5) {
+          return;
+        }
+        var dx = Math.abs(newX - x);
+        var dy = Math.abs(newY - y);
+        if ((dx === 1 && dy === 0) || (dx === 0 && dy === 1)) {
+          var currentButton = document.getElementById("r" + x + "c" + y);
+          var newButton = document.getElementById("r" + newX + "c" + newY);
+          var currentImg = currentButton.querySelector("img");
+          var newImg = newButton.querySelector("img");
+          currentImg.src = "grass.png";
+          newImg.src = "purple.jpeg";
+          x = newX;
+          y = newY;
+        }
+      }
+    </script>
+  </body>
+</html>
