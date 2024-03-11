@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Weather Simulator</title>
+
+  <style>
+    body {
+      background-color: lightgray;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.5s ease-in-out;
+    }
+
+    h1 {
+      margin-top: 10px;
+      margin-bottom: 0px;
+    }
+
+    button {
+      background-color: black;
+      color: white;
+      padding: 8px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    #sunny:hover {
+      background-color: goldenrod;
+      color: black;
+    }
+
+    #rainy:hover {
+      background-color: steelblue;
+      color: black;
+    }
+
+    #snowy:hover {
+      background-color: white;
+      color: black;
+    }
+
+    #reset:hover {
+      background-color: lightgrey;
+      color: black;
+    }
+
+    #simulation-buttons {
+      margin-bottom: 20px;
+    }
+
+    #weather-icon {
+      width: 100px;
+      height: 100px;
+      background-color: black;
+      border: 2px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 50px;
+      transition: background-color 0.5s ease-in-out;
+      margin-top: 20px;
+    }
+
+    .falling-icon {
+      position: absolute;
+      animation: fall 1.5s ease-in-out;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100vh);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateY(100vh);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Weather Simulation</h1>
+  <p>Select a button below to simulate the weather.</p>
+
+  <div id = "simulation-buttons">
+    <button id = "sunny" onclick = "change_weather ('sunny')">Simulate Sun</button>
+    <button id = "rainy" onclick = "change_weather ('rainy')">Simulate Rain</button>
+    <button id = "snowy" onclick = "change_weather ('snowy')">Simulate Snow</button>
+  </div>
+
+  <button id = "reset" onclick = "change_weather ('reset')">Reset Simulation</button>
+
+  <div id="weather-icon" onclick = "falling_icon ()">❔</div>
+    
+  <script>
+    var icon = "❔";
+    
+    function change_weather (weather) {
+      const weatherIcon = document.getElementById ('weather-icon');
+      if (weather == "sunny") {
+        document.body.style.backgroundColor = "goldenrod";
+        weatherIcon.innerHTML = '☀️';
+        icon = "☀️";
+      } else if (weather == "rainy") {
+        document.body.style.backgroundColor = "steelblue";
+        weatherIcon.innerHTML = '🌧️';
+        icon = "🌧️";
+      } else if (weather == "snowy") {
+        document.body.style.backgroundColor = "white";
+        weatherIcon.innerHTML = '❄️';
+        icon = "❄️";
+      } else if (weather == "reset") {
+        document.body.style.backgroundColor = "lightgrey";
+        weatherIcon.innerHTML = '❔';
+        icon = "❔";
+      }
+    }
+
+    function falling_icon () {
+      const weatherIcon = document.getElementById ('weather-icon');
+      for (let i = 0; i < 100; i++) {
+        const fallingIcon = document.createElement ('div');
+        fallingIcon.className = 'falling-icon';
+        fallingIcon.innerHTML = icon;
+        fallingIcon.style.left = Math.random () * 100 + 'vw'; 
+        fallingIcon.style.animationDuration = (Math.random () * 1 + 1) + 's';
+        weatherIcon.appendChild (fallingIcon);
+        fallingIcon.addEventListener ('animationend', () => {
+          fallingIcon.remove ();
+        });
+      }
+    }
+  </script>
+</body>
+
+</html>
