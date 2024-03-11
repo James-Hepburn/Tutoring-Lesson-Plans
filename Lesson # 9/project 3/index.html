@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Flags of the World</title>
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      background-size: cover;
+      background-position: center;
+      transition: background-image 0.6s ease;
+    }
+
+    .flags {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .card {
+      width: 200px;
+      height: 150px;
+      background-color: black;
+      color: white;
+      margin: 10px;
+      perspective: 1000px;
+      cursor: pointer;
+      position: relative;
+      border: 5px solid black;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card:hover .front {
+      transform: rotateY(-180deg);
+    }
+
+    .card:hover .back {
+      transform: rotateY(0deg);
+    }
+
+    .card,
+    .front,
+    .back {
+      transition: transform 0.6s ease;
+    }
+
+    .front,
+    .back {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      backface-visibility: hidden;
+    }
+
+    .front {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .back {
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .back h2,
+    .back p {
+      margin: 5px;
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const body = document.body;
+
+      document.querySelectorAll(".card").forEach(function (card) {
+        card.addEventListener("mouseover", function () {
+          body.style.backgroundImage = "url('" + card.querySelector("img").src + "')";
+        });
+
+        card.addEventListener("mouseleave", function () {
+          body.style.backgroundImage = "";
+        });
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="flags">
+    <div class="card">
+      <div class="front">
+        <img src="flag1.png" width="200px" height="150px">
+      </div>
+      <div class="back">
+        <h2>Canada</h2>
+        <p>Capital: Ottawa</p>
+        <p>Population: 38.25 million</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="front">
+        <img src="flag2.png" width="200px" height="150px">
+      </div>
+      <div class="back">
+        <h2>USA</h2>
+        <p>Capital: Washington</p>
+        <p>Population: 331.9 million</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="front">
+        <img src="flag3.png" width="200px" height="150px">
+      </div>
+      <div class="back">
+        <h2>Mexico</h2>
+        <p>Capital: Mexico City</p>
+        <p>Population: 126.7 million</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flags">
+    <div class="card">
+      <div class="front">
+        <img src="flag4.png" width="200px" height="150px">
+      </div>
+      <div class="back">
+        <h2>Turkey</h2>
+        <p>Capital: Ankara</p>
+        <p>Population: 84.78 million</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="front">
+        <img src="flag5.png" width="200px" height="150px">
+      </div>
+      <div class="back">
+        <h2>Argentina</h2>
+        <p>Capital: Buenos Aires</p>
+        <p>Population: 45.81 million</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="front">
+        <img src="flag6.png" width="200px" height="150px">
+      </div>
+      <div class="back">
+        <h2>Egypt</h2>
+        <p>Capital: Cairo</p>
+        <p>Population: 109.3 million</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
