@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    body {
+      background-color: #DCAFFF;
+      text-align: center;
+    }
+
+    .customAlert {
+      background-color: black;
+      border: 5px solid white;
+      color: white; 
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      visibility: hidden;
+      padding: 10px;
+      width: 160px;
+      text-align: center;
+      border-radius: 10px;
+    }
+  </style>
+<head>
+  <title>Countdown Timer</title>
+</head>
+
+<body> 
+  <h2>Countdown Timer</h2>
+
+  <label>Hour:</label>
+  <input type="number" id="hour" min="0" max="23" placeholder="0" required>
+
+  <label>Minute:</label>
+  <input type="number" id="minute" min="0" max="59" placeholder="0" required>
+
+  <label>Second:</label>
+  <input type="number" id="second" min="0" max="59" placeholder="0" required>
+
+  <br> <br>
+
+  <button onclick="startCountdown()">Start Countdown</button>
+
+  <br> <br>
+ 
+  <div id="countdown"></div>
+
+  <div class = "customAlert"> 
+    <p>Countdown Finished!</p>
+    <button onclick="hideCustomAlert()">Close</button>
+  </div>
+
+  <script>
+    function startCountdown() {
+      var hourInput = document.getElementById('hour').value;
+      var minuteInput = document.getElementById('minute').value;
+      var secondInput = document.getElementById('second').value;
+
+      var hour = parseInt(hourInput);
+      var minute = parseInt(minuteInput);
+      var second = parseInt(secondInput);
+
+      if (isNaN(hour)) {
+        hour = 0;
+      }
+
+      if (isNaN(minute)) {
+        minute = 0;
+      }
+
+      if (isNaN(second)) {
+        second = 0;
+      }
+
+      var totalSeconds = hour * 3600 + minute * 60 + second;
+
+      var countdownInterval = setInterval(function () {
+        var hoursLeft = Math.floor(totalSeconds / 3600);
+        var minutesLeft = Math.floor((totalSeconds % 3600) / 60);
+        var secondsLeft = totalSeconds % 60;
+
+        document.getElementById('countdown').innerHTML = hoursLeft + "h " + minutesLeft + "m " + secondsLeft + "s ";
+
+        if (totalSeconds <= 0) {
+          clearInterval(countdownInterval);
+          document.getElementById('hour').value = 0;
+          document.getElementById('minute').value = 0;
+          document.getElementById('second').value = 0;
+          document.getElementById('countdown').innerHTML = "";
+          showCustomAlert();
+        } else {
+          totalSeconds -= 1;
+        }
+      }, 1000);
+    }
+
+    function showCustomAlert() {
+      document.querySelector(".customAlert").style.visibility = "visible"; 
+    }
+
+    function hideCustomAlert() {
+      document.querySelector(".customAlert").style.visibility = "hidden";
+    }
+  </script>
+</body>
+
+</html>
