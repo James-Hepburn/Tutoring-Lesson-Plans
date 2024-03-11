@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Hangman</title>
+
+  <style>
+    body {
+      background-color: #2E9C99;
+      text-align: center;
+    }
+
+    .customAlert {
+      background-color: black;
+      border: 5px solid white;
+      color: white; 
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      visibility: hidden;
+      padding: 10px;
+      width: 160px;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    #hangmanImageContainer {
+      float: left; 
+    }
+
+    #hangmanImage {
+      max-width: 100%;
+      height: 100px;
+    }
+
+    #boardContainer {
+      clear: both;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Hangman!</h2>
+  
+  <label>Enter one letter:</label> 
+  <input type="text" id="letterInput">
+
+  <br> <br>
+  
+  <button onclick="getLetter()">Guess</button>
+
+  <br> <br>
+
+  <div id="boardContainer"></div>
+
+  <div id="hangmanImageContainer">
+    <img id="hangmanImage" src="">
+  </div>
+
+  <div class = "customAlert"> 
+    <p></p>
+    <button onclick="hideCustomAlert()">Close</button>
+  </div>
+  
+  <script>
+    var previous_guesses = [];
+    var lives = 5;
+    var answer = selectWord ();
+    var board = createBoard (answer);
+    showBoard (board);
+    
+    function getLetter () {
+      if (lives > 0 && checkWin () == false) {
+        var letter = document.getElementById("letterInput").value;
+        if (letter.length != 1) {
+          showCustomAlert ("Only guess one letter at a time.");
+        } else if (checkPrevious (letter)) {
+          showCustomAlert ("You have guessed that letter already.");
+        } else if (notLowercaseLetter (letter)) {
+          showCustomAlert ("Your guess must be a lowercase letter.");
+        } else {
+          previous_guesses.push (letter);
+          if (checkGuess (letter) == false) {
+            lives -= 1;
+            addPicture ();
+            showCustomAlert ("Your guess is wrong. You have " + lives + " lives left.");
+          } else {
+            updateBoard (letter);
+            showBoard (board);
+          }
+        }
+      }
+      if (lives == 0) {
+        showCustomAlert ("You lost! The answer was " + answer + ".");
+      }
+      if (checkWin ()) {
+        showCustomAlert ("You won!");
+      }
+      document.getElementById("letterInput").value = "";
+    }
+
+    function addPicture () {
+      var hangmanImage = document.getElementById("hangmanImage");
+      var hangmanImageContainer = document.getElementById("hangmanImageContainer");
+      var imagePath = "stage" + (5 - lives) + ".png";
+      hangmanImage.src = imagePath;
+      hangmanImageContainer.style.display = "block";
+    }
+
+    function checkWin () {
+      for (var i = 0; i < board.length; i++) {
+        if (board [i] == "_") {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    function updateBoard (letter) {
+      for (var i = 0; i < answer.length; i++) {
+        if (answer [i] == letter) {
+          board [i] = letter;
+        }
+      }
+    }
+
+    function checkGuess (letter) {
+      for (var i = 0; i < answer.length; i++) {
+        if (answer [i] == letter) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    function showBoard (board) {
+      var boardContainer = document.getElementById ("boardContainer");
+      boardContainer.innerHTML = board.join (" ");
+    }
+
+    function createBoard (word) {
+      var board = [];
+      for (var i = 0; i < word.length; i++) {
+        board.push ("_");
+      }
+      return board;
+    }
+
+    function selectWord () {
+      var words = ["apple", "banana", "computer", "chocolate", "mountain", "river", "library", "coffee", "window", "garden"];
+      var index = Math.floor (Math.random () * words.length);
+      return words [index];
+    }
+
+    function notLowercaseLetter (letter) {
+      var alphabet = "abcdefghijklmnopqrstuvwxyz";
+      for (var i = 0; i < alphabet.length; i++) {
+        if (alphabet [i] == letter) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    function checkPrevious (letter) {
+      for (var i = 0; i < previous_guesses.length; i++) {
+        if (previous_guesses [i] == letter) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    function showCustomAlert(message) {
+      document.querySelector(".customAlert p").innerText = message;
+      document.querySelector(".customAlert").style.visibility = "visible"; 
+    }
+
+    function hideCustomAlert() {
+      document.querySelector(".customAlert").style.visibility = "hidden";
+    }
+  </script>
+</body>
+
+</html>
