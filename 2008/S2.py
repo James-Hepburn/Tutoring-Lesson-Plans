@@ -7,6 +7,8 @@ def calculate_pennies (radius):
       point = (i * i) + (j * j)
       if point <= radius * radius:
         pennies += 1
+      else:
+        break
   return int ((pennies * 4) + 1) # split circle into 4 quadrants + center penny
 
 while True:
