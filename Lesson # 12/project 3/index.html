@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+  <title>Music Playlist</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center; 
+      font-size: 2.5em; 
+      margin: 0 0 20px 0; 
+      color: #333; 
+    }
+
+    .accordion {
+      width: 80%;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .accordion-item {
+      background: #fff;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .accordion-item h2 {
+      margin: 0;
+      padding: 15px;
+      background: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .accordion-content {
+      display: none;
+      padding: 15px;
+      background: #f9f9f9;
+    }
+
+    .nested-accordion-item {
+      margin: 10px 0;
+    }
+
+    .nested-accordion-item h3 {
+      margin: 0;
+      padding: 10px;
+      background: #6c757d;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .nested-accordion-content {
+      display: none;
+      padding: 10px;
+      background: #e9ecef;
+    }
+
+    .nested-nested-accordion-item {
+      margin: 5px 0;
+    }
+
+    .nested-nested-accordion-item h4 {
+      margin: 0;
+      padding: 8px;
+      background: #343a40;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .nested-nested-accordion-content {
+      display: none;
+      padding: 8px;
+      background: #f1f1f1;
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+<body>
+  <h1>Music Playlist!</h1>
+
+  <div class = "accordion">
+    <div class = "accordion-item">
+      <h2>Rap</h2>
+
+      <div class = "accordion-content">
+        <div class = "nested-accordion-item">
+          <h3>Kodak Black</h3>
+
+          <div class = "nested-accordion-content">
+            <div class = "nested-nested-accordion-item">
+              <h4>Tunnel Vision</h4>
+
+              <div class = "nested-nested-accordion-content">
+                <p>
+                  <strong>Audio: </strong>
+                  <a href = "https://www.youtube.com/watch?v=YE93dD6jjoU&ab_channel=Kodakblack-Topic">Here</a>
+                </p>
+                <p>
+                  <strong>Lyrics: </strong>
+                  <a href = "https://genius.com/Kodak-black-tunnel-vision-lyrics">Here</a>
+                </p>
+              </div>
+            </div>
+
+            <div class = "nested-nested-accordion-item">
+              <h4>Heart and Mind</h4>
+
+              <div class = "nested-nested-accordion-content">
+                <p>
+                  <strong>Audio: </strong>
+                  <a href = "https://www.youtube.com/watch?v=VZJoUC1F5xI&ab_channel=PromoSound">Here</a>
+                </p>
+                <p>
+                  <strong>Lyrics: </strong>
+                  <a href = "https://genius.com/Kodak-black-and-plies-heart-mind-lyrics">Here</a>
+                </p>
+              </div>
+            </div>
+
+            <div class = "nested-nested-accordion-item">
+              <h4>No Flockin'</h4>
+
+              <div class = "nested-nested-accordion-content">
+                <p>
+                  <strong>Audio: </strong>
+                  <a href = "https://www.youtube.com/watch?v=JrCsGPYQXbQ&ab_channel=KodakBlack-Topic">Here</a>
+                </p>
+                <p>
+                  <strong>Lyrics: </strong>
+                  <a href = "https://genius.com/Kodak-black-no-flockin-lyrics">Here</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class = "nested-accordion-item">
+          <h3>King Von</h3>
+
+          <div class = "nested-accordion-content">
+            <div class = "nested-nested-accordion-item">
+              <h4>Crazy Story</h4>
+
+              <div class = "nested-nested-accordion-content">
+                <p>
+                  <strong>Audio: </strong>
+                  <a href = "https://www.youtube.com/watch?v=3GQJqnA0KDw&ab_channel=KingVon">Here</a>
+                </p>
+                <p>
+                  <strong>Lyrics: </strong>
+                  <a href = "https://genius.com/King-von-crazy-story-lyrics">Here</a>
+                </p>
+              </div>
+            </div>
+
+            <div class = "nested-nested-accordion-item">
+              <h4>Armed and Dangerous</h4>
+
+              <div class = "nested-nested-accordion-content">
+                <p>
+                  <strong>Audio: </strong>
+                  <a href = "https://www.youtube.com/watch?v=pi0hN_Dumms&ab_channel=KingVon">Here</a>
+                </p>
+                <p>
+                  <strong>Lyrics: </strong>
+                  <a href = "https://genius.com/King-von-armed-and-dangerous-lyrics">Here</a>
+                </p>
+              </div>
+            </div>
+
+            <div class = "nested-nested-accordion-item">
+              <h4>Took Her to the O</h4>
+
+              <div class = "nested-nested-accordion-content">
+                <p>
+                  <strong>Audio: </strong>
+                  <a href = "https://www.youtube.com/watch?v=ER8_0MVfxeg&ab_channel=DatPiff">Here</a>
+                </p>
+                <p>
+                  <strong>Lyrics: </strong>
+                  <a href = "https://genius.com/King-von-took-her-to-the-o-lyrics">Here</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class = "nested-accordion-item">
+          <h3>Sleepy Hallow</h3>
+
+          <div class = "nested-accordion-content">
+            <div class = "nested-nested-accordion-item">
+              <h4>2 Fake</h4>
+
+              <div class = "nested-nested-accordion-content">
+                <p>
+                  <strong>Audio: </strong>
+                  <a href = "https://www.youtube.com/watch?v=HvcvFxfxyeM&ab_channel=SleepyHallow">Here</a>
+                </p>
+                <p>
+                  <strong>Lyrics: </strong>
+                  <a href = "https://genius.com/Sleepy-hallow-2-fake-lyrics">Here</a>
+                </p>
+              </div>
+            </div>
+
+            <div class = "nested-nested-accordion-item">
+              <h4>Lowkey</h4>
+
+              <div class = "nested-nested-accordion-content">
+                <p>
+                  <strong>Audio: </strong>
+                  <a href = "https://www.youtube.com/watch?v=G5uR0mg45sg&ab_channel=SleepyHallow">Here</a>
+                </p>
+                <p>
+                  <strong>Lyrics: </strong>
+                  <a href = "https://genius.com/Sleepy-hallow-lowkey-lyrics">Here</a>
+                </p>
+              </div>
+            </div>
+
+            <div class = "nested-nested-accordion-item">
+              <h4>Cupid's Guidance</h4>
+
+              <div class = "nested-nested-accordion-content">
+                <p>
+                  <strong>Audio: </strong>
+                  <a href = "https://www.youtube.com/watch?v=uoSkhnfGgiY&ab_channel=SleepyHallowVEVO">Here</a>
+                </p>
+                <p>
+                  <strong>Lyrics: </strong>
+                  <a href = "https://genius.com/Sleepy-hallow-cupids-guidance-lyrics">Here</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class = "accordion-item">
+      <h2>Rock</h2>
+
+      <div class = "accordion-content">
+        <div class = "nested-accordion-item">
+          <h3>Blink-182</h3>
+
+          <div class = "nested-accordion-content">
+            <div class = "nested-nested-accordion-item">
+              <h4>First Date</h4>
+
+              <div class = "nested-nested-accordion-content">
+                <p>
+                  <strong>Audio: </strong>
+                  <a href = "https://www.youtube.com/watch?v=b7svfsv3DZQ&ab_channel=NewStateRecords">Here</a>
+                </p>
+                <p>
+                  <strong>Lyrics: </strong>
+                  <a href = "https://genius.com/Blink-182-first-date-lyrics">Here</a>
+                </p>
+              </div>
+            </div>
+
+            <div class = "nested-nested-accordion-item">
+              <h4>Going Away to College</h4>
+
+              <div class = "nested-nested-accordion-content">
+                <p>
+                  <strong>Audio: </strong>
+                  <a href = "https://www.youtube.com/watch?v=skOhuW3Dxys&ab_channel=blink-182-Topic">Here</a>
+                </p>
+                <p>
+                  <strong>Lyrics: </strong>
+                  <a href = "https://genius.com/Blink-182-going-away-to-college-lyrics">Here</a>
+                </p>
+              </div>
+            </div>
+
+            <div class = "nested-nested-accordion-item">
+              <h4>The Rock Show</h4>
+
+              <div class = "nested-nested-accordion-content">
+                <p>
+                  <strong>Audio: </strong>
+                  <a href = "https://www.youtube.com/watch?v=e-RPEr_WXpM&ab_channel=blink-182-Topic">Here</a>
+                </p>
+                <p>
+                  <strong>Lyrics: </strong>
+                  <a href = "https://genius.com/Blink-182-the-rock-show-lyrics">Here</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class = "nested-accordion-item">
+          <h3>Red Hot Chili Peppers</h3>
+
+          <div class = "nested-accordion-content">
+            <div class = "nested-nested-accordion-item">
+              <h4>Can't Stop</h4>
+
+              <div class = "nested-nested-accordion-content">
+                <p>
+                  <strong>Audio: </strong>
+                  <a href = "https://www.youtube.com/watch?v=l-E0nFErk3w&ab_channel=razzo6130">Here</a>
+                </p>
+                <p>
+                  <strong>Lyrics: </strong>
+                  <a href = "https://genius.com/Red-hot-chili-peppers-cant-stop-lyrics">Here</a>
+                </p>
+              </div>
+            </div>
+
+            <div class = "nested-nested-accordion-item">
+              <h4>Scar Tissue</h4>
+
+              <div class = "nested-nested-accordion-content">
+                <p>
+                  <strong>Audio: </strong>
+                  <a href = "https://www.youtube.com/watch?v=h9YyazDg9YM&ab_channel=TheHQMusicChannel">Here</a>
+                </p>
+                <p>
+                  <strong>Lyrics: </strong>
+                  <a href = "https://genius.com/Red-hot-chili-peppers-scar-tissue-lyrics">Here</a>
+                </p>
+              </div>
+            </div>
+
+            <div class = "nested-nested-accordion-item">
+              <h4>Under the Bridge</h4>
+
+              <div class = "nested-nested-accordion-content">
+                <p>
+                  <strong>Audio: </strong>
+                  <a href = "https://www.youtube.com/watch?v=7sh79MvzOuI&ab_channel=RedHotChiliPeppers-Topic">Here</a>
+                </p>
+                <p>
+                  <strong>Lyrics: </strong>
+                  <a href = "https://genius.com/Red-hot-chili-peppers-under-the-bridge-lyrics">Here</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class = "nested-accordion-item">
+          <h3>Green Day</h3>
+
+          <div class = "nested-accordion-content">
+            <div class = "nested-nested-accordion-item">
+              <h4>Basket Case</h4>
+
+              <div class = "nested-nested-accordion-content">
+                <p>
+                  <strong>Audio: </strong>
+                  <a href = "https://www.youtube.com/watch?v=AJDiYxKSAqQ&ab_channel=GreenDay-Topic">Here</a>
+                </p>
+                <p>
+                  <strong>Lyrics: </strong>
+                  <a href = "https://genius.com/Green-day-basket-case-lyrics">Here</a>
+                </p>
+              </div>
+            </div>
+
+            <div class = "nested-nested-accordion-item">
+              <h4>Brain Stew</h4>
+
+              <div class = "nested-nested-accordion-content">
+                <p>
+                  <strong>Audio: </strong>
+                  <a href = "https://www.youtube.com/watch?v=lfppdaW24YQ&ab_channel=GreenDay-Topic">Here</a>
+                </p>
+                <p>
+                  <strong>Lyrics: </strong>
+                  <a href = "https://genius.com/Green-day-brain-stew-lyrics">Here</a>
+                </p>
+              </div>
+            </div>
+
+            <div class = "nested-nested-accordion-item">
+              <h4>Holiday</h4>
+
+              <div class = "nested-nested-accordion-content">
+                <p>
+                  <strong>Audio: </strong>
+                  <a href = "https://www.youtube.com/watch?v=sO-S32xnXA0&ab_channel=GreenDay-Topic">Here</a>
+                </p>
+                <p>
+                  <strong>Lyrics: </strong>
+                  <a href = "https://genius.com/Green-day-holiday-lyrics">Here</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var items = document.querySelectorAll(".accordion-item");
+    var nestedItems = document.querySelectorAll(".nested-accordion-item");
+    var nestedNestedItems = document.querySelectorAll(".nested-nested-accordion-item");
+
+    items.forEach(item => {
+      item.addEventListener("click", function (e) {
+        if (e.target.classList.contains('nested-accordion-item') || e.target.closest('.nested-accordion-item')) {
+          return;
+        }
+
+        var content = item.querySelector(".accordion-content");
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    });
+
+    nestedItems.forEach(nestedItem => {
+      nestedItem.addEventListener("click", function (e) {
+        if (e.target.classList.contains('nested-nested-accordion-item') || e.target.closest('.nested-nested-accordion-item')) {
+          return;
+        }
+
+        var nestedContent = nestedItem.querySelector(".nested-accordion-content");
+        if (nestedContent.style.display === "block") {
+          nestedContent.style.display = "none";
+        } else {
+          nestedContent.style.display = "block";
+        }
+      });
+    });
+
+    nestedNestedItems.forEach(nestedNestedItem => {
+      nestedNestedItem.addEventListener("click", function () {
+        var nestedNestedContent = nestedNestedItem.querySelector(".nested-nested-accordion-content");
+        if (nestedNestedContent.style.display === "block") {
+          nestedNestedContent.style.display = "none";
+        } else {
+          nestedNestedContent.style.display = "block";
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
