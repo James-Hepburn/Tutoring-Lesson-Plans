@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Roman Emperors</title>
+  
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #333;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .timeline {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border-left: 5px solid #8b0000;
+      border-right: 5px solid #8b0000;
+    }
+
+    .emperor {
+      position: relative;
+      text-align: center;
+      flex-grow: 1;
+      max-width: 20%;
+    }
+
+    .emperor img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid #8b0000;
+      cursor: pointer;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .emperor img:hover {
+      transform: scale(1.15);
+      border-color: #b22222;
+    }
+
+    .tooltip {
+      position: absolute;
+      top: 140%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #333;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 8px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      font-size: 14px;
+    }
+
+    .emperor:hover .tooltip {
+      opacity: 1;
+    }
+
+    .line {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background-color: #8b0000;
+      z-index: -1;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>The First Three Roman Emperors</h1>
+  
+  <div class="timeline">
+    <div class="line"></div>
+    
+    <div class="emperor">
+      <img src="Augustus.jpg" onclick="window.location.href='augustus.html'">
+      <div class="tooltip">Augustus (27 BC - 14 AD)</div>
+    </div>
+    
+    <div class="emperor">
+      <img src="Tiberius.jpg" onclick="window.location.href='tiberius.html'">
+      <div class="tooltip">Tiberius (14 AD - 37 AD)</div>
+    </div>
+    
+    <div class="emperor">
+      <img src="Caligula.jpg" onclick="window.location.href='caligula.html'">
+      <div class="tooltip">Caligula (37 AD - 41 AD)</div>
+    </div>
+  </div>
+  
+</body>
+
+</html>
