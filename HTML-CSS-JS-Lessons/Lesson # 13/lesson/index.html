@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    .tooltip {
+      position: relative; /* position will be relative to other elements */
+      display: inline-block; /* allows for stuff beside it with space around */
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden; 
+      width: 100px; 
+      background-color: lightblue; 
+      color: white; 
+      text-align: center;
+      padding: 5px; 
+      border-radius: 5px; 
+      position: absolute; /* must set the position */
+      top: 125%; /* this makes it below the button */
+      left: 50%;
+      z-index: 1; /* on top of everything */
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible; 
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class = "tooltip">
+    <button>Click Me</button>
+    <p class = "tooltiptext">Tip #1</p> 
+  </div>
+
+</body>
+
+</html>

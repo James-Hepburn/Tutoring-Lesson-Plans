@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <style>
+
+      input[type="text"] {
+        width: 200px;
+        padding: 10px;
+        border: 3px solid black;
+      }
+
+      ul {
+        list-style-type: none; /* removes dot */
+        padding: 0; /* removes extra indentation */
+      }
+
+      li {
+        padding: 10px; 
+        border: 3px solid black; 
+        margin-top: 5px;
+        width: 100px;
+        display: none; /* hide list items */
+      }
+
+      a {
+        text-decoration: none; /* removes underline */
+        color: black;
+      }
+
+    </style>
+    
+  </head>
+
+  <body>
+
+    <!-- list of items and the search bar -->
+
+    <input type = "text" id = "input" onkeyup = "onSearch()" placeholder = "Search a colour...">
+
+    <ul id = "options">
+      <li>
+        <a href = "#"> Red </a>
+      </li>
+
+      <li>
+        <a href = "#"> Green </a>
+      </li>
+
+      <li>
+        <a href = "#"> Blue </a>
+      </li>
+    </ul>
+
+    <!-- script for filter function -->
+
+    <script>
+
+      function onSearch () {
+        var input = document.getElementById ("input").value.toLowerCase();
+        var options = document.getElementById ("options");
+        var items = options.getElementsByTagName ("li");
+
+        for (var i = 0; i < items.length; i++) {
+          var text = items[i].textContent.toLowerCase();
+          if (text.includes (input)) {
+            items[i].style.display = "block";
+          } else {
+            items[i].style.display = "none";
+          }
+        }
+      }
+      
+    </script>
+  
+  </body>
+
+</html>

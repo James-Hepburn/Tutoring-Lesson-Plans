@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Trivia!</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    select {
+      padding: 8px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #questionContainer {
+      overflow-y: auto; 
+      max-height: 80vh; 
+  </style>
+</head>
+
+<body>
+  <form id="categoryForm">
+    <label>Select Category:</label>
+    <select id="category">
+      <option value="20">Mythology</option>
+      <option value="21">Sports</option>
+      <option value="23">History</option>
+    </select>
+    <button id="startGameButton">Start Game</button>
+  </form>
+
+  <div id="questionContainer" class="hidden"></div>
+
+  <script>
+    document.getElementById("startGameButton").addEventListener("click", function(event) {
+      event.preventDefault(); 
+      getQuestions();
+      document.getElementById("categoryForm").classList.add("hidden");
+    });
+
+    async function getQuestions() {
+      var category = document.getElementById("category").value;
+      var link = `https://opentdb.com/api.php?amount=10&category=${category}&type=boolean`;
+      var response = await fetch(link);
+      var data = await response.json();
+
+      displayQuestions(data.results);
+    }
+
+    function displayQuestions(questions) {
+      const questionContainer = document.getElementById("questionContainer");
+      questionContainer.innerHTML = ""; 
+
+      questions.forEach((question, index) => {
+        const questionDiv = document.createElement("div");
+        questionDiv.classList.add("question");
+
+        const questionText = document.createElement("p");
+        questionText.textContent = `Question ${index + 1}: ${question.question}`;
+        questionDiv.appendChild(questionText);
+
+        const trueButton = document.createElement("button");
+        trueButton.textContent = "True";
+        trueButton.addEventListener("click", () => checkAnswer(question, true));
+        questionDiv.appendChild(trueButton);
+
+        const falseButton = document.createElement("button");
+        falseButton.textContent = "False";
+        falseButton.addEventListener("click", () => checkAnswer(question, false));
+        questionDiv.appendChild(falseButton);
+
+        questionContainer.appendChild(questionDiv);
+      });
+
+      questionContainer.classList.remove("hidden");
+    }
+
+    function checkAnswer(question, userAnswer) {
+      const correctAnswer = question.correct_answer === "True";
+      const isCorrect = userAnswer === correctAnswer;
+
+      if (isCorrect) {
+        alert("Correct!");
+      } else {
+        alert("Incorrect!");
+      }
+    }
+  </script>
+</body>
+
+</html>

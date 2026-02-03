@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Solar System</title>
+    
+    <style>
+        body {
+            background-color: #0b0b3b;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 550px;
+            font-size: 2.5em;
+        }
+
+        .carousel {
+            position: absolute; 
+            width: 350px;
+            height: 350px;
+            overflow: visible;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 0.3);
+            z-index: 2;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-images img {
+            width: 350px; 
+            height: 350px; 
+            object-fit: cover;
+        }
+
+        .before, .after {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            color: #0b0b3b;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        .before:hover, .after:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        .before {
+            left: 10px;
+        }
+
+        .after {
+            right: 10px;
+        }
+
+        .tooltips {
+            display: flex; 
+            position: absolute;
+            bottom: 10px; 
+            width: 100%;
+            justify-content: space-between; 
+        }
+
+        .tooltip {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            border-radius: 5px;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column; 
+            margin: 0 5px; 
+            position: relative;
+        }
+
+        .tooltip img {
+            width: 30px; 
+            height: 30px;
+            margin-bottom: 5px;
+            cursor: pointer; 
+        }
+
+        .tooltip-text {
+            display: none; 
+            position: absolute;
+            bottom: 100%; 
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #ffffff;
+            padding: 5px;
+            border-radius: 5px;
+            white-space: nowrap;
+            z-index: 10; 
+        }
+
+        .tooltip:hover .tooltip-text {
+            display: block; 
+        }
+    </style>
+</head>
+    
+<body>
+    <h1>Interactive Solar System</h1>
+
+    <div class = "carousel">
+        <div class = "carousel-images">
+            <div class = "planet">
+                <img src = "Mercury.png" class = "planet-img">
+
+                <div class = "tooltips">
+                    <div class = "tooltip name">
+                        <img src = "Mercury.png">
+                        <p class = "tooltip-text">Mercury</p>
+                    </div>
+                    <div class = "tooltip moon">
+                        <img src = "Moon.png">
+                        <p class = "tooltip-text">0 Moons</p>
+                    </div>
+                    <div class = "tooltip sun">
+                        <img src = "Sun.png">
+                        <p class = "tooltip-text">57.9 million km from Sun</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class = "planet">
+                <img src = "Venus.png" class = "planet-img">
+
+                <div class = "tooltips">
+                    <div class = "tooltip name">
+                        <img src = "Venus.png">
+                        <p class = "tooltip-text">Venus</p>
+                    </div>
+                    <div class = "tooltip moon">
+                        <img src = "Moon.png">
+                        <p class = "tooltip-text">0 Moons</p>
+                    </div>
+                    <div class = "tooltip sun">
+                        <img src = "Sun.png">
+                        <p class = "tooltip-text">108.2 million km from Sun</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class = "planet">
+                <img src = "Earth.png" class = "planet-img">
+
+                <div class = "tooltips">
+                    <div class = "tooltip name">
+                        <img src = "Earth.png">
+                        <p class = "tooltip-text">Earth</p>
+                    </div>
+                    <div class = "tooltip moon">
+                        <img src = "Moon.png">
+                        <p class = "tooltip-text">1 Moons</p>
+                    </div>
+                    <div class = "tooltip sun">
+                        <img src = "Sun.png">
+                        <p class = "tooltip-text">149.6 million km from Sun</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class = "planet">
+                <img src = "Mars.png" class = "planet-img">
+
+                <div class = "tooltips">
+                    <div class = "tooltip name">
+                        <img src = "Mars.png">
+                        <p class = "tooltip-text">Mars</p>
+                    </div>
+                    <div class = "tooltip moon">
+                        <img src = "Moon.png">
+                        <p class = "tooltip-text">2 Moons</p>
+                    </div>
+                    <div class = "tooltip sun">
+                        <img src = "Sun.png">
+                        <p class = "tooltip-text">227.9 million km from Sun</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class = "planet">
+                <img src = "Jupiter.png" class = "planet-img">
+
+                <div class = "tooltips">
+                    <div class = "tooltip name">
+                        <img src = "Jupiter.png">
+                        <p class = "tooltip-text">Jupiter</p>
+                    </div>
+                    <div class = "tooltip moon">
+                        <img src = "Moon.png">
+                        <p class = "tooltip-text">92 Moons</p>
+                    </div>
+                    <div class = "tooltip sun">
+                        <img src = "Sun.png">
+                        <p class = "tooltip-text">778.5 million km from Sun</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class = "planet">
+                <img src = "Saturn.png" class = "planet-img">
+
+                <div class = "tooltips">
+                    <div class = "tooltip name">
+                        <img src = "Saturn.png">
+                        <p class = "tooltip-text">Saturn</p>
+                    </div>
+                    <div class = "tooltip moon">
+                        <img src = "Moon.png">
+                        <p class = "tooltip-text">145 Moons</p>
+                    </div>
+                    <div class = "tooltip sun">
+                        <img src = "Sun.png">
+                        <p class = "tooltip-text">1.43 billion km from Sun</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class = "planet">
+                <img src = "Uranus.png" class = "planet-img">
+
+                <div class = "tooltips">
+                    <div class = "tooltip name">
+                        <img src = "Uranus.png">
+                        <p class = "tooltip-text">Uranus</p>
+                    </div>
+                    <div class = "tooltip moon">
+                        <img src = "Moon.png">
+                        <p class = "tooltip-text">27 Moons</p>
+                    </div>
+                    <div class = "tooltip sun">
+                        <img src = "Sun.png">
+                        <p class = "tooltip-text">2.87 billion km from Sun</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class = "planet">
+                <img src = "Neptune.png">
+
+                <div class = "tooltips">
+                    <div class = "tooltip name">
+                        <img src = "Neptune.png">
+                        <p class = "tooltip-text">Neptune</p>
+                    </div>
+                    <div class = "tooltip moon">
+                        <img src = "Moon.png">
+                        <p class = "tooltip-text">14 Moons</p>
+                    </div>
+                    <div class = "tooltip sun">
+                        <img src = "Sun.png">
+                        <p class = "tooltip-text">4.50 billion km from Sun</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <button class = "before" onclick = "carousel (-1)">&#10094;</button>
+        <button class = "after" onclick = "carousel (1)">&#10095;</button>
+    </div>
+
+    <script>
+        var index = 0;
+        var planets = document.querySelectorAll(".carousel-images .planet");
+
+        function carousel(amount) {
+            index += amount;
+
+            if (index >= planets.length) {
+                index = 0;
+            } else if (index < 0) {
+                index = planets.length - 1;
+            }
+
+            for (var i = 0; i < planets.length; i++) {
+                if (i === index) {
+                    planets[i].style.display = "block";
+                } else {
+                    planets[i].style.display = "none";
+                }
+            }
+        }
+
+        carousel(0);
+    </script>
+</body>
+</html>

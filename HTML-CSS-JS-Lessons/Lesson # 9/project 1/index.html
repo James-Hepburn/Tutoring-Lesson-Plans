@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Transitions Website</title>
+  <style>
+    body {
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h2 {
+      color: white;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      position: relative;
+    }
+
+    .arrow, .box, .circle {
+      cursor: pointer;
+      font-size: 24px;
+      color: white;
+    }
+
+    .button {
+      cursor: pointer;
+      font-size: 24px;
+    }
+
+    .arrow:hover {
+      opacity: 0.8;
+    }
+
+    .transition-container {
+      transition: transform 0.5s ease, background-color 0.5s ease, opacity 0.5s ease;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: lightblue;
+    }
+
+    .circle {
+      width: 100px;
+      height: 100px;
+      background-color: lightcoral;
+      border-radius: 50%;
+    }
+
+    #resetButton {
+      margin-top: 20px; 
+      font-size: 18px; 
+      padding: 10px 20px; 
+    }
+  </style>
+</head>
+<body>
+
+<h2>Random Transitions!</h2>
+  
+<div class="container">
+  <div class="transition-container" onclick="moveLeft()">
+    <div class="arrow">&#8592;</div>
+  </div>
+  <div class="transition-container" onclick="moveRight()">
+    <div class="arrow">&#8594;</div>
+  </div>
+  <div class="transition-container" onclick="moveUp()">
+    <div class="arrow">&#8593;</div>
+  </div>
+  <div class="transition-container" onclick="moveDown()">
+    <div class="arrow">&#8595;</div>
+  </div>
+  <div class="transition-container" onclick="changeColor()">
+    <button class="button">Change Color</button>
+  </div>
+  <div class="transition-container" onclick="spinBox()">
+    <div class="box"></div>
+  </div>
+  <div class="transition-container" onclick="changeSize()">
+    <div class="circle"></div>
+  </div>
+</div>
+
+  <button id="resetButton" onclick="window.location.href = 'index.html';">Reset Everything</button>
+
+<script>
+  function moveLeft() {
+    document.querySelector('.transition-container:nth-child(1)').style.transform = 'translateX(-50px)';
+  }
+
+  function moveRight() {
+    document.querySelector('.transition-container:nth-child(2)').style.transform = 'translateX(50px)';
+  }
+
+  function moveUp() {
+    document.querySelector('.transition-container:nth-child(3)').style.transform = 'translateY(-50px)';
+  }
+
+  function moveDown() {
+    document.querySelector('.transition-container:nth-child(4)').style.transform = 'translateY(50px)';
+  }
+
+  function changeColor() {
+    const button = document.querySelector('.transition-container:nth-child(5) button');
+    const randomColor = getRandomColor();
+    button.style.backgroundColor = randomColor;
+  }
+
+  function spinBox() {
+    const box = document.querySelector('.transition-container:nth-child(6) .box');
+    const randomDegree = Math.floor(Math.random() * 360);
+    box.style.transform = `rotate(${randomDegree}deg)`;
+  }
+
+  function changeSize() {
+    const circle = document.querySelector('.transition-container:nth-child(7) .circle');
+    const randomSize = Math.floor(Math.random() * 100) + 50;
+    circle.style.width = `${randomSize}px`;
+    circle.style.height = `${randomSize}px`;
+  }
+
+  function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+</script>
+
+</body>
+</html>

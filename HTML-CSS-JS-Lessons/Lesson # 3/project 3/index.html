@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  
+  <title>Event Registration</title>
+
+  <style>
+    body {
+      background-color: #4CAF50;
+      text-align: center;
+    }
+
+    form {
+      background-color: #3E1E0E;
+      color: white;
+      text-align: left;
+      display: inline-block;
+      padding: 30px;
+      margin-top: 50px;
+    }
+
+    button[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      display: block; 
+      margin: 0 auto;
+      width: 100px;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #45A049;
+    }
+  </style>
+  
+</head>
+  
+<body>
+
+  <h1>2023 Chess Competition Registration!</h1>
+
+  <form>
+    <label>First name: </label> <br>
+    <input type = "text" required> <br> <br>
+
+    <label>Last name:</label> <br>
+    <input type = "text" required> <br> <br>
+
+    <label>Email:</label> <br>
+    <input type = "email" required> <br> <br>
+
+    <label>Phone number:</label> <br>
+    <input type = "tel" required> <br> <br>
+
+    <label>Competition type:</label> <br>
+    <select required>
+      <option>Blitz</option>
+      <option>Rapid</option>
+      <option>Classical</option>
+    </select> <br> <br>
+
+    <label>Elo rating:</label> <br>
+    <input type = "number" min = 0 max = 3000 required> <br> <br>
+
+    <button type = "submit"> Submit </button>
+  </form>
+
+</body>
+  
+</html>

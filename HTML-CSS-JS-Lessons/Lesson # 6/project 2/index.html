@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Photography Gallery</title>
+  
+  <style>
+    body {
+      background-color: #3BDFE5;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    #options {
+      width: 150px;
+      height: 35px;
+      text-align-last: center;
+      background-color: black;
+      color: white;
+      margin-top: 10px;
+    }
+
+    img {
+      width: 200px;
+      height: 200px;
+      display: none;
+    }
+
+    h1 {
+      margin-top: 75px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Photography Gallery</h1>
+  
+  <h4>Filter images by category</h4>
+  
+  <select id = "options" onchange = "onSearch()">
+    <option>All</option>
+    <option>Architecture</option>
+    <option>Astronomy</option>
+    <option>Nature</option>
+  </select>
+
+  <br><br>
+
+  <img src = "image1.png" id = "Architecture">
+  <img src = "image2.png" id = "Architecture">
+  <img src = "image3.png" id = "Astronomy">
+  <img src = "image4.png" id = "Astronomy">
+  <img src = "image5.png" id = "Nature">
+  <img src = "image6.png" id = "Nature">
+
+  <script>
+    function onSearch () {
+      var options = document.getElementById ("options");
+      var category = options.options[options.selectedIndex].text;
+      var images = document.getElementsByTagName("img");
+
+      for (var i = 0; i < images.length; i++) {
+        var imageCategory = images[i].id;
+        if (category === "All" || category === imageCategory) {
+          images[i].style.display = "inline-block";
+        } else {
+          images[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

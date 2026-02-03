@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Coding Survey</title>
+  
+    <style>
+        body {
+            background-color: #98FF98;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+        }
+
+        form {
+            background-color: #FFDAB9;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        input[type="checkbox"],
+        input[type="number"],
+        input[type="range"],
+        input[type="radio"],
+        select,
+        textarea {
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            display: block;
+            margin: 0 auto;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Coding Survey</h1>
+    <form action="/index.html" method="PUT">
+        <label>Which programming languages do you know?</label>
+        <input type="checkbox" name="languages"> Python <br>
+        <input type="checkbox" name="languages"> Java <br>
+        <input type="checkbox" name="languages"> PHP <br>
+        <input type="checkbox" name="languages"> Ruby <br>
+        <input type="checkbox" name="languages"> C++ <br>
+
+        <label>How many hours a week do you spend coding?</label>
+        <input type="number" min="0" name="hours" required> <br>
+
+        <label>On a scale of 1 (very little) to 5 (a lot), how much do you enjoy coding?</label>
+        <input type="range" min="1" max="5" step="1" name="enjoyment" required> <br>
+
+        <label>Please rate your coding ability:</label>
+        <input type="radio" name="skill" value="beginner" required> Beginner <br>
+        <input type="radio" name="skill" value="intermediate" required> Intermediate <br>
+        <input type="radio" name="skill" value="advanced" required> Advanced <br>
+
+        <label>At which age did you start coding?</label>
+        <select name="startAge" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="13 or younger">13 or younger</option>
+            <option value="14 to 19">14 to 19</option>
+            <option value="20 to 55">20 to 55</option>
+            <option value="56 or older">56 or older</option>
+        </select> <br>
+
+        <label>Any additional comments?</label>
+        <textarea rows="5" cols="40" name="comments"></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>

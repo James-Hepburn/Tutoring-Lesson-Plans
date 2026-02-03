@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+  
+<body>
+  <!-- creates the canvas, not the actual chart -->
+  <canvas id = "chart" width = "400" height = "200"></canvas>
+
+  <!-- includes the chart.js library -->
+  <script src = "https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    // getContext is needed to render text, shapes and images on the canvas
+    var canvas = document.getElementById ("chart").getContext ("2d");
+
+    // to make the chart with its data
+    var chart = new Chart (canvas, {
+      type: "bar",
+      
+      data: {
+        labels: ["Red", "Blue", "Green", "Yellow", "Pink"],
+        datasets: [{
+          data: [8, 7, 5, 9, 6],
+          backgroundColor: ["Red", "Blue", "Green", "Yellow", "Pink"]
+        }]
+      },
+      
+      options: {
+        responsive: true, // graph will adjust sizes to fit different screens
+        
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: "Children"
+            }
+          }
+        },
+
+        plugins: {
+          title: {
+            display: true,
+            text: "Favourite Colour"
+          },
+
+          // to hide the undefined part
+          legend: {
+            display: false
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

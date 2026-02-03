@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <style>
+    /* carousel */
+    .carousel {
+      position: relative; 
+      width: 200px;
+      height: 200px;
+      overflow: hidden; /* hides other images */
+      border: solid black 5px;
+    }
+
+    .carousel-images img {
+      transition: transform 0.5s ease; 
+      width: 200px; 
+      height: 200px; 
+    }
+
+    .before, .after {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: lightgray;
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      font-size: 18px;
+    }
+
+    .before {
+      left: 0;
+    }
+
+    .after {
+      right: 0;
+    }
+  </style>
+</head>
+  
+<body>
+
+  <!-- carousel -->
+  <div class = "carousel">
+    <div class = "carousel-images">
+      <img src = "A.png">
+      <img src = "B.png">
+      <img src = "C.png">
+    </div>
+    <button class = "before" onclick = "carousel (-1)">&#10094;</button>
+    <button class = "after" onclick = "carousel (1)">&#10095;</button>
+  </div>
+
+  <script>
+    var index = 0;
+    var images = document.querySelectorAll (".carousel-images img");
+
+    function carousel (amount) {
+      index += amount;
+
+      if (index >= images.length) {
+        index = 0;
+      } else if (index < 0) {
+        index = images.length - 1;
+      }
+
+      for (var i = 0; i < images.length; i++) {
+        if (i == index) {
+          images [i].style.display = "block";
+        } else {
+          images [i].style.display = "none";
+        }
+      }
+    }
+  </script>
+  
+</body>
+  
+</html>

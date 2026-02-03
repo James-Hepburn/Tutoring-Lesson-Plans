@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Learning Languge Platform</title>
+
+  <style>
+    body {
+      background-color: #E69A5E;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      background-color: black;
+      padding: 10px;
+    }
+
+    .button-link {
+      text-decoration: none;
+      display: inline-block;
+      margin: 0 100px;
+      padding: 10px;
+      color: white;
+    }
+
+    .button-link:hover {
+      background-color: #555; 
+    }
+
+    .quiz-content {
+      margin: auto;
+      text-align: left;
+      display: inline-block;
+    }
+
+    .customAlert {
+      background-color: white;
+      border: 5px solid black;
+      position: fixed;
+      top: 50%;
+      right: 10%;
+      transform: translate(-50%, -50%);
+      visibility: hidden;
+      padding: 10px;
+      width: 160px;
+      text-align: center;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a class = "button-link" href = "index.html"> Home Page </a>
+    <a class = "button-link" href = "lesson1.html"> Lesson # 1 </a>
+    <a class = "button-link" href = "quiz1.html"> Quiz # 1 </a>
+    <a class = "button-link" href = "lesson2.html"> Lesson # 2 </a>
+    <a class = "button-link" href = "quiz2.html"> Quiz # 2 </a>
+  </header>
+
+  <div class="quiz-content">
+    <h1>Quiz 2: Numbers</h1>
+
+    <p>Let's test your knowledge on numbers in French:</p>
+
+    <form>
+      <label>Question 1. How do you say '1' in French?</label> <br>
+      <input type="radio" name="question1" onclick="checkAnswer('1', 'Un')"> Un <br>
+      <input type="radio" name="question1" onclick="checkAnswer('1', 'Deux')"> Deux <br>
+      <input type="radio" name="question1" onclick="checkAnswer('1', 'Trois')"> Trois <br>
+      <input type="radio" name="question1" onclick="checkAnswer('1', 'Quatre')"> Quatre <br>
+
+      <br>
+      <label>Question 2. How do you say '2' in French?</label> <br>
+      <input type="radio" name="question2" onclick="checkAnswer('2', 'Deux')"> Deux <br>
+      <input type="radio" name="question2" onclick="checkAnswer('2', 'Trois')"> Trois <br>
+      <input type="radio" name="question2" onclick="checkAnswer('2', 'Un')"> Un <br>
+      <input type="radio" name="question2" onclick="checkAnswer('2', 'Quatre')"> Quatre <br>
+
+      <br>
+      <label>Question 3. How do you say '3' in French?</label> <br>
+      <input type="radio" name="question3" onclick="checkAnswer('3', 'Trois')"> Trois <br>
+      <input type="radio" name="question3" onclick="checkAnswer('3', 'Deux')"> Deux <br>
+      <input type="radio" name="question3" onclick="checkAnswer('3', 'Quatre')"> Quatre <br>
+      <input type="radio" name="question3" onclick="checkAnswer('3', 'Un')"> Un <br>
+
+      <br>
+      <label>Question 4. How do you say '4' in French?</label> <br>
+      <input type="radio" name="question4" onclick="checkAnswer('4', 'Cinq')"> Cinq <br>
+      <input type="radio" name="question4" onclick="checkAnswer('4', 'Quatre')"> Quatre <br>
+      <input type="radio" name="question4" onclick="checkAnswer('4', 'Huit')"> Huit <br>
+      <input type="radio" name="question4" onclick="checkAnswer('4', 'Sept')"> Sept <br>
+
+      <br>
+      <label>Question 5. How do you say '5' in French?</label> <br>
+      <input type="radio" name="question5" onclick="checkAnswer('5', 'Six')"> Six <br>
+      <input type="radio" name="question5" onclick="checkAnswer('5', 'Dix')"> Dix <br>
+      <input type="radio" name="question5" onclick="checkAnswer('5', 'Cinq')"> Cinq <br>
+      <input type="radio" name="question5" onclick="checkAnswer('5', 'Neuf')"> Neuf <br>
+
+      <br>
+      <label>Question 6. How do you say '6' in French?</label> <br>
+      <input type="radio" name="question6" onclick="checkAnswer('6', 'Dix')"> Dix <br>
+      <input type="radio" name="question6" onclick="checkAnswer('6', 'Six')"> Six <br>
+      <input type="radio" name="question6" onclick="checkAnswer('6', 'Trois')"> Trois <br>
+      <input type="radio" name="question6" onclick="checkAnswer('6', 'Un')"> Un <br>
+
+      <br>
+      <label>Question 7. How do you say '7' in French?</label> <br>
+      <input type="radio" name="question7" onclick="checkAnswer('7', 'Sept')"> Sept <br>
+      <input type="radio" name="question7" onclick="checkAnswer('7', 'Cinq')"> Cinq <br>
+      <input type="radio" name="question7" onclick="checkAnswer('7', 'Huit')"> Huit <br>
+      <input type="radio" name="question7" onclick="checkAnswer('7', 'Deux')"> Deux <br>
+
+      <br>
+      <label>Question 8. How do you say '8' in French?</label> <br>
+      <input type="radio" name="question8" onclick="checkAnswer('8', 'Huit')"> Huit <br>
+      <input type="radio" name="question8" onclick="checkAnswer('8', 'Quatre')"> Quatre <br>
+      <input type="radio" name="question8" onclick="checkAnswer('8', 'Dix')"> Dix <br>
+      <input type="radio" name="question8" onclick="checkAnswer('8', 'Sept')"> Sept <br>
+
+      <br>
+      <label>Question 9. How do you say '9' in French?</label> <br>
+      <input type="radio" name="question9" onclick="checkAnswer('9', 'Neuf')"> Neuf <br>
+      <input type="radio" name="question9" onclick="checkAnswer('9', 'Six')"> Six <br>
+      <input type="radio" name="question9" onclick="checkAnswer('9', 'Sept')"> Sept <br>
+      <input type="radio" name="question9" onclick="checkAnswer('9', 'Cinq')"> Cinq <br>
+
+      <br>
+      <label>Question 10. How do you say '10' in French?</label> <br>
+      <input type="radio" name="question10" onclick="checkAnswer('10', 'Dix')"> Dix <br>
+      <input type="radio" name="question10" onclick="checkAnswer('10', 'Un')"> Un <br>
+      <input type="radio" name="question10" onclick="checkAnswer('10', 'Neuf')"> Neuf <br>
+      <input type="radio" name="question10" onclick="checkAnswer('10', 'Deux')"> Deux <br>
+      <br>
+    </form>
+
+    <div class = "customAlert"> 
+      <p></p>
+      <button onclick="hideCustomAlert()">Got it!</button>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer(question, answer) {
+      if (question == "1" && answer == "Un") {
+        showCustomAlert("Correct! Well done.");
+      } else if (question == "2" && answer == "Deux") {
+        showCustomAlert("Correct! Well done.");
+      } else if (question == "3" && answer == "Trois") {
+        showCustomAlert("Correct! Well done.");
+      } else if (question == "4" && answer == "Quatre") {
+        showCustomAlert("Correct! Well done.");
+      } else if (question == "5" && answer == "Cinq") {
+        showCustomAlert("Correct! Well done.");
+      } else if (question == "6" && answer == "Six") {
+        showCustomAlert("Correct! Well done.");
+      } else if (question == "7" && answer == "Sept") {
+        showCustomAlert("Correct! Well done.");
+      } else if (question == "8" && answer == "Huit") {
+        showCustomAlert("Correct! Well done.");
+      } else if (question == "9" && answer == "Neuf") {
+        showCustomAlert("Correct! Well done.");
+      } else if (question == "10" && answer == "Dix") {
+        showCustomAlert("Correct! Well done.");
+      } else {
+        showCustomAlert("Incorrect. Please try again.");
+      }
+    }
+
+    function showCustomAlert(message) {
+      document.querySelector(".customAlert p").innerText = message;
+      document.querySelector(".customAlert").style.visibility = "visible"; 
+    }
+
+    function hideCustomAlert() {
+      document.querySelector(".customAlert").style.visibility = "hidden";
+    }
+  </script>
+</body>
+
+</html>

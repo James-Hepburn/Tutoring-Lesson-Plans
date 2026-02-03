@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Learning Languge Platform</title>
+
+  <style>
+    body {
+      background-color: #E69A5E;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      background-color: black;
+      padding: 10px;
+    }
+
+    .button-link {
+      text-decoration: none;
+      display: inline-block;
+      margin: 0 100px;
+      padding: 10px;
+      color: white;
+    }
+
+    .button-link:hover {
+      background-color: #555; 
+    }
+
+    .quiz-content {
+      margin: auto;
+      text-align: left;
+      display: inline-block;
+    }
+
+    .customAlert {
+      background-color: white;
+      border: 5px solid black;
+      position: fixed;
+      top: 50%;
+      right: 10%;
+      transform: translate(-50%, -50%);
+      visibility: hidden;
+      padding: 10px;
+      width: 160px;
+      text-align: center;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a class = "button-link" href = "index.html"> Home Page </a>
+    <a class = "button-link" href = "lesson1.html"> Lesson # 1 </a>
+    <a class = "button-link" href = "quiz1.html"> Quiz # 1 </a>
+    <a class = "button-link" href = "lesson2.html"> Lesson # 2 </a>
+    <a class = "button-link" href = "quiz2.html"> Quiz # 2 </a>
+  </header>
+
+  <div class="quiz-content">
+    <h1>Quiz 1: Colours</h1>
+
+    <p>Let's test your knowledge on colours in French:</p>
+
+    <form>
+      <label>Question 1. How do you say 'Red' in French?</label> <br>
+      <input type="radio" name="question1" onclick="checkAnswer('1', 'Bleu')"> Bleu <br>
+      <input type="radio" name="question1" onclick="checkAnswer('1', 'Rouge')"> Rouge <br>
+      <input type="radio" name="question1" onclick="checkAnswer('1', 'Violet')"> Violet <br>
+      <input type="radio" name="question1" onclick="checkAnswer('1', 'Orange')"> Orange <br>
+
+      <br>
+      <label>Question 2. How do you say 'Blue' in French?</label> <br>
+      <input type="radio" name="question2" onclick="checkAnswer('2', 'Bleu')"> Bleu <br>
+      <input type="radio" name="question2" onclick="checkAnswer('2', 'Jaune')"> Jaune <br>
+      <input type="radio" name="question2" onclick="checkAnswer('2', 'Vert')"> Vert <br>
+      <input type="radio" name="question2" onclick="checkAnswer('2', 'Violet')"> Violet <br>
+
+      <br>
+      <label>Question 3. How do you say 'Yellow' in French?</label> <br>
+      <input type="radio" name="question3" onclick="checkAnswer('3', 'Rouge')"> Rouge <br>
+      <input type="radio" name="question3" onclick="checkAnswer('3', 'Jaune')"> Jaune <br>
+      <input type="radio" name="question3" onclick="checkAnswer('3', 'Vert')"> Vert <br>
+      <input type="radio" name="question3" onclick="checkAnswer('3', 'Orange')"> Orange <br>
+
+      <br>
+      <label>Question 4. How do you say 'Green' in French?</label> <br>
+      <input type="radio" name="question4" onclick="checkAnswer('4', 'Orange')"> Orange <br>
+      <input type="radio" name="question4" onclick="checkAnswer('4', 'Rouge')"> Rouge <br>
+      <input type="radio" name="question4" onclick="checkAnswer('4', 'Jaune')"> Jaune <br>
+      <input type="radio" name="question4" onclick="checkAnswer('4', 'Vert')"> Vert <br>
+
+      <br>
+      <label>Question 5. How do you say 'Orange' in French?</label> <br>
+      <input type="radio" name="question5" onclick="checkAnswer('5', 'Vert')"> Vert <br>
+      <input type="radio" name="question5" onclick="checkAnswer('5', 'Bleu')"> Bleu <br>
+      <input type="radio" name="question5" onclick="checkAnswer('5', 'Orange')"> Orange <br>
+      <input type="radio" name="question5" onclick="checkAnswer('5', 'Rouge')"> Rouge <br>
+
+      <br>
+      <label>Question 6. How do you say 'Purple' in French?</label> <br>
+      <input type="radio" name="question6" onclick="checkAnswer('6', 'Violet')"> Violet <br>
+      <input type="radio" name="question6" onclick="checkAnswer('6', 'Jaune')"> Jaune <br>
+      <input type="radio" name="question6" onclick="checkAnswer('6', 'Orange')"> Orange <br>
+      <input type="radio" name="question6" onclick="checkAnswer('6', 'Rouge')"> Rouge <br>
+      <br>
+    </form>
+
+    <div class = "customAlert"> 
+      <p></p>
+      <button onclick="hideCustomAlert()">Got it!</button>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer(question, answer) {
+      if (question == "1" && answer == "Rouge") {
+        showCustomAlert("Correct! Well done.");
+      } else if (question == "2" && answer == "Bleu") {
+        showCustomAlert("Correct! Well done.");
+      } else if (question == "3" && answer == "Jaune") {
+        showCustomAlert("Correct! Well done.");
+      } else if (question == "4" && answer == "Vert") {
+        showCustomAlert("Correct! Well done.");
+      } else if (question == "5" && answer == "Orange") {
+        showCustomAlert("Correct! Well done.");
+      } else if (question == "6" && answer == "Violet") {
+        showCustomAlert("Correct! Well done.");
+      } else {
+        showCustomAlert("Incorrect. Please try again.");
+      }
+    }
+
+    function showCustomAlert(message) {
+      document.querySelector(".customAlert p").innerText = message;
+      document.querySelector(".customAlert").style.visibility = "visible"; 
+    }
+
+    function hideCustomAlert() {
+      document.querySelector(".customAlert").style.visibility = "hidden";
+    }
+  </script>
+</body>
+
+</html>

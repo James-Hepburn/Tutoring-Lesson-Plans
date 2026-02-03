@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    .customAlert {
+      /* colour blow */
+      background-color: #BB2519;
+      border: 5px solid black;
+      color: white; 
+      /* position below */
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      /* extra style information */
+      visibility: hidden;
+      padding: 10px;
+      width: 160px;
+      text-align: center;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- basic alert example -->
+  <button onclick="showAlert()">See Basic Alert</button>
+
+  <!-- custom alert example -->
+  <button onclick="showCustomAlert()">See Custom Alert</button>
+
+  <div class = "customAlert"> 
+    <p>This is a custom alert.</p>
+    <button onclick="hideCustomAlert()">Close</button>
+  </div>
+  
+  <script>
+    function showAlert() {
+      alert("This is a basic alert!");
+    }
+
+    function showCustomAlert() {
+      document.querySelector(".customAlert").style.visibility = "visible"; 
+    }
+
+    function hideCustomAlert() {
+      document.querySelector(".customAlert").style.visibility = "hidden";
+    }
+  </script>
+  
+</body>
+
+</html>

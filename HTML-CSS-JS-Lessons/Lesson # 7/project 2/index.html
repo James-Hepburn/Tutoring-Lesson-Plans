@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Task Manager</title>
+
+  <style>
+    body {
+      background-color: lightblue;
+    }
+
+    input, textarea, button {
+      border: 1px solid black;
+      width: 300px;
+    }
+
+    button {
+     background-color: white;
+    }
+
+    button:hover {
+      background-color: lightgray;
+    }
+    
+    .task-card {
+      width: 300px;
+      border: 2px solid #333;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      background-color: #fff;
+      display: block;
+      text-align: center;
+    }
+
+    .task-card h3 {
+      color: #333;
+    }
+
+    .task-card p {
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Task Manager</h1>
+
+  <form>
+    <label>Task name:</label>
+    <br>
+    <input type = "text" id = "name">
+  
+    <br><br>
+  
+    <label>Task description:</label>
+    <br>
+    <textarea rows = "5" cols = "30" id = "description"></textarea>
+
+    <br><br>
+
+    <button type = "button" onclick = "addTask()">Add task</button>
+  </form>
+
+  <div class = "task-container" id = "tasks"></div>
+
+  <script>
+    function addTask () {
+      var name = document.getElementById ("name").value;
+      var description = document.getElementById ("description").value;
+
+      if (name != "" && description != "") {
+        var tasks = document.getElementById ("tasks");
+        var newTask = document.createElement ("div");
+        newTask.className = "task-card";
+        newTask.innerHTML = `<h3>${name}</h3><p>${description}</p>`;
+        tasks.appendChild (newTask);
+        document.getElementById ("name").value = "";
+        document.getElementById ("description").value = "";
+      } 
+    }
+  </script>
+</body>
+
+</html>

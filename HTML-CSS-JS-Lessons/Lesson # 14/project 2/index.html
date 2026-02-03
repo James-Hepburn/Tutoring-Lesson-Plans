@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Fitness Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%; 
+            background-color: #28a745;
+            padding: 20px 0; 
+            text-align: center; 
+            color: white;
+            box-sizing: border-box; 
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0; 
+            font-size: 2em; 
+        }
+
+        .input-container {
+            display: flex;
+            align-items: center;
+            margin-top: 30px; 
+            background: white; 
+            padding: 10px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+            color: #555;
+            flex-shrink: 0;
+        }
+
+        input[type="number"] {
+            padding: 5px;
+            margin-right: 20px;
+            width: 100px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            flex-shrink: 0; 
+        }
+
+        button {
+            padding: 5px 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        .chart-container {
+            width: 80%;
+            max-width: 800px;
+            margin-top: 30px;
+        }
+
+        canvas {
+            width: 100%;
+            height: 400px;
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Simple Fitness Tracker</h1>
+    </header>
+
+    <div class="all-containers">
+        <div class="input-container">
+            <label>Steps Taken: </label>
+            <input type="number" min="0" id="steps">
+            <button onclick="addSteps()">Add</button>
+        </div>   
+
+        <div class="input-container">
+            <label>Calories Burned: </label>
+            <input type="number" min="0" id="calories">
+            <button onclick="addCalories()">Add</button>
+        </div>   
+    </div>
+
+    <div class="chart-container">
+        <canvas id="stepsChart"></canvas>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="caloriesChart"></canvas>
+    </div>
+
+    <script>
+        var ctxSteps = document.getElementById('stepsChart').getContext('2d');
+
+        var stepsChart = new Chart(ctxSteps, {
+            type: 'bar',
+            data: {
+                labels: [],  
+                datasets: [{
+                    label: 'Steps',
+                    data: [], 
+                    backgroundColor: 'rgba(40, 167, 69, 0.2)',
+                    borderColor: 'rgba(40, 167, 69, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Date and Time'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Steps Taken'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: "Total Amount of Steps Taken"
+                    }
+                }
+            }
+        });
+
+        var ctxCalories = document.getElementById('caloriesChart').getContext('2d');
+
+        var caloriesChart = new Chart(ctxCalories, {
+            type: 'bar',
+            data: {
+                labels: [],  
+                datasets: [{
+                    label: 'Calories',
+                    data: [], 
+                    backgroundColor: 'rgba(40, 167, 69, 0.2)',
+                    borderColor: 'rgba(40, 167, 69, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Date and Time'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Calories Burned'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: "Total Amount of Calories Burned"
+                    }
+                }
+            }
+        });
+
+        var stepTimes = [];
+        var steps = [];
+
+        var calorieTimes = [];
+        var calories = [];
+
+        function addSteps () {
+            var amount = document.getElementById ("steps").value;
+            var timestamp = new Date ().toLocaleString ();
+
+            stepTimes.push (timestamp);
+            steps.push (amount);
+            
+            updateStepChart ();
+        }
+
+        function addCalories () {
+            var amount = document.getElementById ("calories").value;
+            var timestamp = new Date ().toLocaleString ();
+
+            calorieTimes.push (timestamp);
+            calories.push (amount);
+
+            updateCalorieChart ();
+        }
+
+        function updateStepChart () {
+            stepsChart.data.labels = stepTimes;
+            stepsChart.data.datasets [0].data = steps;
+            stepsChart.update ();
+        }
+
+        function updateCalorieChart () {
+            caloriesChart.data.labels = calorieTimes;
+            caloriesChart.data.datasets [0].data = calories;
+            caloriesChart.update ();
+        }
+    </script>
+</body>
+</html>

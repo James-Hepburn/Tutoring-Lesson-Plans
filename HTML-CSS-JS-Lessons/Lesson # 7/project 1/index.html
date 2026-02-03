@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Real Estate</title>
+  
+  <style>
+    body {
+      background-color: lightsalmon;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .card {
+      margin-right: 50px;
+      width: 200px;
+      height: 300px;
+      padding: 10px;
+      border: 2px solid black;
+      background-color: #98FF98;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .card img {
+      width: 200px;
+      height: 200px;
+      border: 2px solid black;
+    }
+
+    .card button {
+      font-size: 20px;
+      margin-top: 40px;
+      background-color: black;
+      color: white;
+    }
+
+    .card button:hover {
+      background-color: #333;
+    }
+
+    .card .back {
+      display: none;
+    }
+
+    .flipped .front {
+      display: none;
+    }
+
+    .flipped .back {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    h1 {
+      margin-top: 100px;
+    }
+  </style>
+  
+</head>
+
+<body>
+
+  <h1>Available Properties</h1> <br>
+
+  <div class="card-container">
+    <div class="card" onclick="toggleCard(this)">
+      <div class="front">
+        <img src="house1.png">
+        <button>Learn More</button>
+      </div>
+      <div class="back">
+        <p>House 1 Information:</p>
+        <p>Number of bedrooms: 3</p>
+        <p>Number of bathrooms: 2</p>
+        <p>Area: 1500 sq. ft.</p>
+        <button onclick="toggleCard(this)">Back</button>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="front">
+        <img src="house2.png">
+        <button>Learn More</button>
+      </div>
+      <div class="back">
+        <p>House 2 Information:</p>
+        <p>Number of bedrooms: 4</p>
+        <p>Number of bathrooms: 3</p>
+        <p>Area: 2000 sq. ft.</p>
+        <button onclick="toggleCard(this)">Back</button>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="front">
+        <img src="house3.png">
+        <button>Learn More</button>
+      </div>
+      <div class="back">
+        <p>House 3 Information:</p>
+        <p>Number of bedrooms: 2</p>
+        <p>Number of bathrooms: 1</p>
+        <p>Area: 1200 sq. ft.</p>
+        <button onclick="toggleCard(this)">Back</button>
+      </div>
+    </div>
+  </div> 
+
+  <script>
+    function toggleCard(card) {
+      card.classList.toggle('flipped');
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Melody Market</title>
+
+  <style>
+    body {
+      background-color: #3E2723;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      background-color: #CCCCCC;
+      padding: 20px;
+      margin-bottom: 100px;
+    }
+
+    .button-link {
+      text-decoration: none;
+      display: inline-block;
+      margin: 0 100px;
+      padding: 20px;
+      color: #000000;
+    }
+
+    .button-link:hover {
+      background-color: #999999; 
+    }
+
+    img {
+      background-color: white;
+      display: none;
+    }
+
+    label, p {
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a class="button-link" href="index.html"> Home </a>
+    <a class="button-link" href="instruments.html"> Instruments </a>
+    <a class="button-link" href="contact.html"> Contact Us </a>
+  </header>
+
+  <p>Filter by instrument type</p>
+  <label>Guitars</label>
+  <input type="checkbox" onchange="instrumentType('Guitars')">
+  <label>Saxaphones</label>
+  <input type="checkbox" onchange="instrumentType('Saxaphones')">
+  <label>Violins</label>
+  <input type="checkbox" onchange="instrumentType('Violins')">
+
+  <br><br><br><br>
+
+  <img src="Guitar1.png" width="200px" height="200px">
+  <img src="Guitar2.png" width="200px" height="200px">
+  <img src="Violin1.png" width="200px" height="200px">
+  <img src="Violin2.png" width="200px" height="200px">
+  <img src="Saxaphone1.png" width="200px" height="200px">
+  <img src="Saxaphone2.png" width="200px" height="200px">
+
+  <script>
+    function instrumentType(type) {
+      var img1 = document.querySelector('img[src="Guitar1.png"]');
+      var img2 = document.querySelector('img[src="Guitar2.png"]');
+      var img3 = document.querySelector('img[src="Saxaphone1.png"]');
+      var img4 = document.querySelector('img[src="Saxaphone2.png"]');
+      var img5 = document.querySelector('img[src="Violin1.png"]');
+      var img6 = document.querySelector('img[src="Violin2.png"]');
+      
+      if (type == "Guitars") {
+        img1.style.display = img1.style.display === "inline-block" ? 'none' : "inline-block";
+        img2.style.display = img2.style.display === "inline-block" ? 'none' : "inline-block";
+      }
+
+      if (type == "Saxaphones") {
+        img3.style.display = img3.style.display === "inline-block" ? 'none' : "inline-block";
+        img4.style.display = img4.style.display === "inline-block" ? 'none' : "inline-block";
+      }
+
+      if (type == "Violins") {
+        img5.style.display = img5.style.display === "inline-block" ? 'none' : "inline-block";
+        img6.style.display = img6.style.display === "inline-block" ? 'none' : "inline-block";
+      }
+    }
+  </script>
+</body>
+
+</html>
