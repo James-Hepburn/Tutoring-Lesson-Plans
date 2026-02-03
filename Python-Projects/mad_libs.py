@@ -1,0 +1,11 @@
+name = input ("Enter a male name: ")
+dinosaur = input ("Enter a type of dinosaur (singular): ")
+animal = input ("Enter a type of animal (plural): ")
+game = input ("Enter the name of a game: ")
+number = int (input("Enter a number: "))
+
+print ()
+print (name, "was a mighty", dinosaur)
+print ("The other dinosaurs thought he was good at hunting", animal)
+print ("But", name, "also enjoyed playing", game, "with his", number, "friend(s)")
+print ("The end!")
