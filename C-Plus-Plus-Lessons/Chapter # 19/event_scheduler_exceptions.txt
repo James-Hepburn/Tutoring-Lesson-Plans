@@ -1,0 +1,11 @@
+exceptions list:
+
+1. valid option (from 1 to 3)
+2. valid day (from 1 to 31)
+3. valid month (from 1 to 12)
+4. valid year (from 2023 or onwards)
+5. valid hour (from 1 to 12)
+6. valid minute (from 0 to 59)
+7. valid noon (AM or PM)
+8. valid view events (not empty vector)
+9. valid time slots (not conflicting events)

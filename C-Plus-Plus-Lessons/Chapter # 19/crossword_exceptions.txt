@@ -1,0 +1,5 @@
+exceptions list:
+
+1. valid direction (across or down)
+2. valid colour (green, purple, orange, red, blue, yellow)
+3. valid word (correct answer)

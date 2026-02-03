@@ -1,0 +1,41 @@
+int sum (int n) {
+  if (n == 1) {
+    return 1;
+  } else {
+    return n + sum(n - 1);
+  }
+}
+
+What value is returned by the method call sum (5)? 15
+
+int result (int n) {
+  if (n == 1) {
+    return 2;
+  } else {
+    return 2 * result(n - 1);
+  }
+}
+
+What value is returned by the method call result (5)? 32
+
+int mystery (int n, int a, int d) {
+  if (n == 1) {
+    return a;
+  } else {
+    return d + mystery (n - 1, a, d);
+  }
+}
+
+What value is returned by the method call mystery (3, 2, 6)? 14
+
+int f (int k, int n) {
+  if (n == k) {
+    return k;
+  } else if (n > k) {
+    return f (k, n - k);
+  } else {
+    return f (k - n, n);
+  }
+}
+
+What value is returned by the method call f (6, 8)? 2
